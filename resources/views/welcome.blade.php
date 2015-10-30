@@ -18,7 +18,7 @@
 	</head>
 	<body>
 		<span class="glyphicon glyphicon-search search-icon"></span>
-		<input type="search" class="form-control search-input" placeholder="search for:">
+		<input type="text" class="form-control search-input" placeholder="search for:">
 		<nav>
 			<div data-section-id="email" class="email nav-item">
 				<span class="glyphicon glyphicon-envelope"></span>

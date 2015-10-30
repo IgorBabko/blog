@@ -12,11 +12,11 @@
 
 ::selection
 	background: #FF8968;
-	color: rgb(255, 236, 235);
+	color: #FFF1F0;
 
 ::-moz-selection
 	background: #FF8968;
-	color: rgb(255, 236, 235);
+	color: #FFF1F0;
 
 .highlighter
 	color: #FF6D43;
@@ -28,10 +28,9 @@
 .form-control
 	box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.075);
 	height: 45px;
-	background: rgb(255, 236, 235);
-	color: #FF8968;
-	font:
-		size: 25px;
+	background: #FFF1F0;
+	color: rgba(169, 68, 66, 0.8);
+	font-size: 25px;
 
 textarea.form-control
 	font-size: 18px;
@@ -42,21 +41,21 @@ textarea.form-control
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #FF8968;
 
 .form-group label
-	color: rgba(169,68,66,0.8);
+	color: #FF8968;
 	font:
 		size: 30px;
 		weight: normal;
 
 .button
 	border: none;
-	color: rgba(169,68,66,0.8);
+	color: #FF8968;
 	background: rgba(169,68,66,0.1);
 	border-radius: 4px;
 	box-shadow: 1px 1px 3px rgba(0,0,0,0.575);
 
 	&:hover
-		background: rgba(169,68,66,0.8);
-		color: rgb(255, 236, 235);
+		background: #FF8968;
+		color: #FFF1F0;
 
 	&:focus
 		outline: none;
@@ -73,7 +72,7 @@ body
 		top: 20px;
 		left: 50px;
 		z-index: 1;
-		color: rgb(255, 236, 235);
+		color: #FFF1F0;
 		font-size: 25px;
 		height: 45px;
 		padding: 10px;
@@ -92,6 +91,7 @@ body
 		left: 50px;
 		top: 20px;
 		box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.175);
+
 		&:focus
 			border: none !important;
 			box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.175);
@@ -104,7 +104,7 @@ body
 
 		h1
 			text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.175);
-			color: rgb(255, 236, 235);
+			color: #FFF1F0;
 			position: absolute;
 			bottom: 0;
 			margin: 0;
@@ -115,7 +115,7 @@ body
 		.nav-item
 			&.active-item
 				color: #FF8968;
-				background: rgb(255, 236, 235);
+				background: #FFF1F0;
 				cursor: default;
 
 			&.active-item + span
@@ -125,8 +125,8 @@ body
 			& + span
 				z-index: -1;
 				position: absolute;
-				text-shadow: 1px 1px 1px black;
-				color: rgb(255, 236, 235);
+				text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.375);
+				color: #FFF1F0;
 				top: 23px;
 				font:
 					size: 20px;
@@ -137,8 +137,8 @@ body
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			color: rgb(255, 236, 235);
-			border: 3px solid rgb(255, 236, 235);
+			color: #FFF1F0;
+			border: 3px solid #FFF1F0;
 			background: #FF8968;
 			width: 70px;
 			height: 70px;
@@ -146,8 +146,9 @@ body
 			float: right;
 			margin-left: 20px;
 			cursor: pointer;
+
 			&:hover
-				background: rgb(255, 236, 235);
+				background: #FFF1F0;
 				color: #FF8968;
 
 			span
@@ -176,8 +177,9 @@ body
 		background: #FFF5F2;
 		border-radius: 4px;
 		margin: 0 auto 40px;
-		padding: 50px;
-		box-shadow: 1px 1px 3px black;
+		color: rgba(169,68,66,0.9);
+		padding: 70px;
+		box-shadow: 3px 3px 3px rgba(0,0,0,0.135);
 
 		.sections
 			margin-bottom: 50px;
@@ -206,21 +208,20 @@ body
 					height: 250px;
 
 			#ask
+				.comment-info
+					width: 100%;
 
 				.write-comment-block
+					margin-top: 0 !important;
 					padding-bottom: 50px;
-					border-bottom: 1px solid rgba(169,68,66,0.2);
 
-					.comment-info
-						width: 100%;
-						
-						.name-input
-							max-width: 300px;
-							margin-bottom: 15px;
-							font-size: 20px;
+					.name-input
+						max-width: 300px;
+						margin-bottom: 15px;
+						font-size: 20px;
 
-						textarea
-							height: 100px;
+					textarea
+						height: 100px;
 
 				.comment-block
 					display: flex;
@@ -234,22 +235,21 @@ body
 							margin: auto;
 							display: block;
 							border-radius: 50%;
-							box-shadow: 1px 1px 3px rgba(0,0,0,0.675);
-							
+							box-shadow: 1px 1px 1px rgba(0,0,0,0.375);
+
 						.respond-button, .write-button
 							width: 75px;
 							height: 30px;
 							font-size: 18px;
 							display: block;
 							margin: 18px auto 0;
-							box-shadow: 1px 1px 3px rgba(0,0,0,0.375);
-							
+							box-shadow: 1px 1px 1px rgba(0,0,0,0.375);
+
 					.name
-						color: rgba(169,68,66,0.8);
-						text-align: center;
-						text-align: left;
+						color: #ff8968;
 						margin-bottom: 7px;
 						font-size: 20px;
+						border-bottom: 1px solid rgba(255,137,104,0.20);
 
 					.comment-info
 						margin-left: 20px;
@@ -258,11 +258,6 @@ body
 							display: inline;
 							float: left;
 							padding: 10px 20px;
-							color: rgb(255, 236, 235);
-							background: #FF8968;
-							border-radius: 10px;
-							text-shadow: 1px 1px rgba(0,0,0,0.375);
-							box-shadow: inset 3px 3px 3px rgba(0,0,0,0.175);
 
 				.responses
 					margin-left: 100px;
