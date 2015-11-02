@@ -5785,9 +5785,8 @@ button.close {
   border: 1px solid #FF8968 !important; }
 
 .form-control {
-  box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.075);
   height: 45px;
-  background: #FFF1F0;
+  background: rgba(255, 241, 240, 0.5);
   color: rgba(169, 68, 66, 0.8);
   font-size: 25px; }
 
@@ -5796,8 +5795,7 @@ textarea.form-control {
   resize: none; }
 
 .form-control:focus {
-  box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.075);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #FF8968; }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 4px #FF8968; }
 
 .form-group label {
   color: #FF8968;
@@ -5806,21 +5804,31 @@ textarea.form-control {
 
 .button {
   border: none;
-  color: #FF8968;
-  background: rgba(169, 68, 66, 0.1);
+  color: white;
+  background: #FF8968;
   border-radius: 4px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.575); }
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.575); }
   .button:hover {
-    background: #FF8968;
-    color: #FFF1F0; }
+    background: rgba(169, 68, 66, 0.8);
+    color: white; }
   .button:focus {
     outline: none; }
 
 body {
-  background: #FF8968;
-  margin: 0 50px;
   font-family: 'Ubuntu Mono';
   font-size: 18px; }
+  body .smile {
+    z-index: 1;
+    width: 100px;
+    position: absolute;
+    right: 50px;
+    top: 20px; }
+  body header {
+    background: #FF8968;
+    height: 250px;
+    position: relative;
+    z-index: 0;
+    box-shadow: 0 2px 4px #A4A4A4; }
   body .search-icon {
     position: absolute;
     top: 20px;
@@ -5840,30 +5848,29 @@ body {
     padding-left: 55px;
     width: 450px;
     position: absolute;
+    background: white;
     left: 50px;
     top: 20px;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.175); }
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.175); }
     body .search-input:focus {
       border: none !important;
-      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.175); }
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.175); }
   body nav {
     margin: 100px 0 20px;
-    position: relative;
-    padding: 0 45px; }
-    body nav::after {
-      clear: both;
-      content: "";
-      display: table; }
+    position: absolute;
+    bottom: 10px;
+    padding: 0 45px;
+    width: 100%; }
     body nav h1 {
-      text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.175);
-      color: #FFF1F0;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.375);
+      color: white;
       position: absolute;
       bottom: 0;
       margin: 0;
       font-size: 48px;
       font-style: italic; }
     body nav .nav-item {
-      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.175);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.375);
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
@@ -5874,7 +5881,7 @@ body {
       -ms-flex-align: center;
       align-items: center;
       color: #FFF1F0;
-      border: 3px solid #FFF1F0;
+      border: 3px solid white;
       background: #FF8968;
       width: 70px;
       height: 70px;
@@ -5884,7 +5891,7 @@ body {
       cursor: pointer; }
       body nav .nav-item.active-item {
         color: #FF8968;
-        background: #FFF1F0;
+        background: white;
         cursor: default; }
       body nav .nav-item.active-item + span {
         top: 23px; }
@@ -5898,13 +5905,14 @@ body {
         font-style: italic;
         transition: all 0.2s ease-in-out; }
       body nav .nav-item:hover {
-        background: #FFF1F0;
+        background: white;
         color: #FF8968; }
       body nav .nav-item span {
         font-size: 30px; }
     body nav .bio + span {
       right: 336px; }
     body nav .posts + span {
+      bottom: 200px;
       right: 235px; }
     body nav .ask + span {
       right: 155px; }
@@ -5917,12 +5925,9 @@ body {
       top: -30px; }
   body .content {
     line-height: 1.7;
-    background: #FFF5F2;
     border-radius: 4px;
-    margin: 0 auto 40px;
-    color: rgba(169, 68, 66, 0.9);
-    padding: 70px;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.135); }
+    color: #861311;
+    padding: 70px; }
     body .content .sections {
       margin-bottom: 50px; }
       body .content .sections section {
@@ -5933,8 +5938,9 @@ body {
             float: right;
             margin-left: 10px;
             width: 300px; }
-      body .content .sections #email .password-group {
-        margin-top: 103px; }
+      body .content .sections #email form {
+        max-width: 680px;
+        margin: 0 auto; }
       body .content .sections #email .submit-email {
         float: right;
         width: 120px;
@@ -5961,21 +5967,21 @@ body {
         align-items: flex-start;
         margin-top: 50px; }
         body .content .sections #ask .comment-block .avatar-block img {
-          width: 75px;
-          height: 75px;
+          width: 60px;
+          height: 60px;
           margin: auto;
           display: block;
           border-radius: 50%;
-          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.375); }
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.375); }
         body .content .sections #ask .comment-block .avatar-block .respond-button, body .content .sections #ask .comment-block .avatar-block .write-button {
           width: 75px;
           height: 30px;
           font-size: 18px;
           display: block;
           margin: 18px auto 0;
-          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.375); }
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.375); }
         body .content .sections #ask .comment-block .name {
-          color: #ff8968;
+          color: #FF4916;
           margin-bottom: 7px;
           font-size: 20px;
           border-bottom: 1px solid rgba(255, 137, 104, 0.2); }

@@ -17,27 +17,30 @@
 
 	</head>
 	<body>
-		<span class="glyphicon glyphicon-search search-icon"></span>
-		<input type="text" class="form-control search-input" placeholder="search for:">
-		<nav>
-			<div data-section-id="email" class="email nav-item">
-				<span class="glyphicon glyphicon-envelope"></span>
-			</div>
-			<span data-title="email me">email</span>
-			<div data-section-id="ask" class="ask nav-item">
-				<span class="glyphicon glyphicon-question-sign"></span>
-			</div>
-			<span data-title="ask me">ask</span>
-			<div data-section-id="posts" class="posts nav-item">
-				<span class="glyphicon glyphicon-list-alt"></span></p>
-			</div>
-			<span data-title="my posts">posts</span>
-			<div data-section-id="bio" class="bio nav-item active-item">
-				<span class="glyphicon glyphicon-user"></span>
-			</div>
-			<span data-title="my bio">bio</span>
-			<h1>my bio</h1>
-		</nav>
+		<img class="smile" src="img/smile_white.png">
+		<header>
+			<span class="glyphicon glyphicon-search search-icon"></span>
+			<input type="text" class="form-control search-input" placeholder="search for:">
+			<nav>
+				<div data-section-id="email" class="email nav-item">
+					<span class="glyphicon glyphicon-envelope"></span>
+				</div>
+				<span data-title="email me">email</span>
+				<div data-section-id="ask" class="ask nav-item">
+					<span class="glyphicon glyphicon-question-sign"></span>
+				</div>
+				<span data-title="ask me">ask</span>
+				<div data-section-id="posts" class="posts nav-item">
+					<span class="glyphicon glyphicon-list-alt"></span></p>
+				</div>
+				<span data-title="my posts">posts</span>
+				<div data-section-id="bio" class="bio nav-item active-item">
+					<span class="glyphicon glyphicon-user"></span>
+				</div>
+				<span data-title="my bio">bio</span>
+				<h1>my bio</h1>
+			</nav>
+		</header>
 		<div class="content">
 			{{-- <img id="coffee-img" src="img/coffee.png" alt="coffee">
 			<img id="pen-img" src="img/pen1.png" alt="pen"> --}}
@@ -65,7 +68,7 @@
 					<div class="comment-block write-comment-block">
 						<div class="avatar-block">
 							<img src="/img/avatar_placeholder_pink.png">
-							<button class="button write-button">comment</button>
+							<button class="button write-button">write</button>
 						</div>
 						<div class="comment-info">
 							<input type="text" class="form-control name-input" placeholder="Your name">
@@ -158,28 +161,25 @@
 				</section>
 				<section id="email">
 					<form>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label for="exampleInputEmail1">Name:</label>
-									<input type="text" class="form-control" id="exampleInputEmail1">
-								</div>
-								<div class="form-group password-group">
-									<label for="exampleInputPassword1">Email:</label>
-									<input type="email" class="form-control" id="exampleInputPassword1">
-								</div>
+						<div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Name:</label>
+								<input type="text" class="form-control" id="exampleInputEmail1">
 							</div>
-							<div class="form-group col-md-6">
-								<label>Text:</label>
-								<textarea class="form-control"></textarea>
+							<div class="form-group password-group">
+								<label for="exampleInputPassword1">Email:</label>
+								<input type="email" class="form-control" id="exampleInputPassword1">
 							</div>
+						</div>
+						<div class="form-group">
+							<label>Text:</label>
+							<textarea class="form-control"></textarea>
 						</div>
 						<button type="submit" class="submit-email button">Submit</button>
 					</form>
 				</section>
 			</div>
 		</div>
-
 		<script src="js/jquery-2.1.4.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/app.js"></script>

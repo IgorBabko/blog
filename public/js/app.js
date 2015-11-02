@@ -1,5 +1,15 @@
 ;(function($) {
 
+	var smileImg = $(".smile");
+
+	smileImg.on('mouseenter', function () {
+		this.src = 'img/smile_white_small.png';
+	});
+
+	smileImg.on('mouseleave', function () {
+		this.src = 'img/smile_white.png';
+	});
+
 	function Slider() {
 		this.sectionId = 'bio';
 	}
