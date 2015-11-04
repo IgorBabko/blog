@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+get('/', function () {
+    return redirect('/posts');
 });
+
+get('/bio', 'PagesController@showBio');
+get('/posts', 'PagesController@showPosts');
+get('/ask', 'PagesController@showDiscussion');
+get('/email', 'PagesController@showEmail');
+
+get('/posts/{slug}', 'PagesController@showPost');

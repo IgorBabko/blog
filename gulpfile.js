@@ -16,5 +16,5 @@ elixir.config.sourcemaps = false;
  */
 
 elixir(function(mix) {
-	mix.phpUnit().sass('app.sass').livereload();
+	mix.sass('app.sass').livereload();
 });
