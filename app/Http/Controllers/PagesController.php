@@ -8,12 +8,12 @@ use Carbon\Carbon;
 
 class PagesController extends Controller
 {
-	public function showPosts() {
+	public function showIndex() {
 		$posts = Post::where('published_at', '<=', Carbon::now())
 			->orderBy('published_at', 'desc')
 			->paginate(config('blog.posts_per_page'));
 
-		return view('pages.posts', compact('posts'));
+		return view('pages.index', compact('posts'));
 	}
 
 	public function showBio()

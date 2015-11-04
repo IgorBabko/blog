@@ -4,7 +4,7 @@
 	<h1 id="page-title">Ask me</h1>
 	<div class="comment-block" id="write-comment-block">
 		<div class="avatar-block">
-			<img src="/img/avatar_placeholder_pink.png">
+			<img src="/assets/img/avatar_placeholder_pink.png">
 			<button class="button write-button">write</button>
 		</div>
 		<div class="comment-info">
@@ -14,7 +14,7 @@
 	</div>
 	<div class="comment-block">
 		<div class="avatar-block">
-			<img src="/img/avatar_placeholder_pink.png">
+			<img src="/assets/img/avatar_placeholder_pink.png">
 			<button class="button respond-button">respond</button>
 		</div>
 		<div class="comment-info">
@@ -27,7 +27,7 @@
 	<div id="responses">
 		<div class="comment-block response">
 			<div class="avatar-block">
-				<img src="/img/avatar_placeholder_pink.png">
+				<img src="/assets/img/avatar_placeholder_pink.png">
 			</div>
 			<div class="comment-info">
 				<div class="name">niko bellic <em class="note-date">Oct 27th 2015 12:19pm</em></div>
@@ -38,7 +38,7 @@
 		</div>
 		<div class="comment-block response">
 			<div class="avatar-block">
-				<img src="/img/avatar_placeholder_pink.png">
+				<img src="/assets/img/avatar_placeholder_pink.png">
 			</div>
 			<div class="comment-info">
 				<div class="name">niko bellic <em class="note-date">Oct 27th 2015 12:19pm</em></div>
@@ -49,7 +49,7 @@
 		</div>
 		<div class="comment-block response">
 			<div class="avatar-block">
-				<img src="/img/avatar_placeholder_pink.png">
+				<img src="/assets/img/avatar_placeholder_pink.png">
 			</div>
 			<div class="comment-info">
 				<div class="name">niko bellic <em class="note-date">Oct 27th 2015 12:19pm</em></div>
@@ -61,7 +61,7 @@
 	</div>
 	<div class="comment-block">
 		<div class="avatar-block">
-			<img src="/img/avatar_placeholder_pink.png">
+			<img src="/assets/img/avatar_placeholder_pink.png">
 			<button class="button respond-button">respond</button>
 		</div>
 		<div class="comment-info">
@@ -73,7 +73,7 @@
 	</div>
 	<div class="comment-block">
 		<div class="avatar-block">
-			<img src="/img/avatar_placeholder_pink.png">
+			<img src="/assets/img/avatar_placeholder_pink.png">
 			<button class="button respond-button">respond</button>
 		</div>
 		<div class="comment-info">
@@ -85,7 +85,7 @@
 	</div>
 	<div class="comment-block">
 		<div class="avatar-block">
-			<img src="/img/avatar_placeholder_pink.png">
+			<img src="/assets/img/avatar_placeholder_pink.png">
 			<button class="button respond-button">respond</button>
 		</div>
 		<div class="comment-info">

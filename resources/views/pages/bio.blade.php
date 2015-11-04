@@ -2,7 +2,7 @@
 
 @section('content')
 	<h1 id="page-title">My bio</h1>
-	<img id="me-img" src="/img/me.jpg">
+	<img id="me-img" src="/assets/img/me.jpg">
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum repellendus quam nisi sed expedita incidunt ullam minus nihil dolorem amet.</p>
 	<p>Eaque veritatis error magnam, temporibus odio aspernatur blanditiis nesciunt nulla non et, vitae cum? Iure, expedita, aut. Eos, consectetur, voluptatem.</p>
 	<p>ситуации, как часть более широкого явления. <span class="highlighter">Автор аргументирует</span> и выстраивает свою позицию через систему фактов.
