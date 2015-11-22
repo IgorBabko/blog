@@ -1,0 +1,49 @@
+.new-button,
+.edit-button,
+.delete-button
+    float: left;
+    width: 120px;
+    font-size: 30px;
+    text-decoration: none;
+    color: white !important;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0;
+    text-decoration: none !important;
+
+
+.new-button
+    background: #29B934;
+
+    &:hover
+        background: darken(#29B934, 7%);
+
+.delete-button
+    background: rgb(230, 72, 72);
+
+    &:hover
+        background: darken(rgb(230, 72, 72), 7%);
+
+.edit-button
+    background: #5196D2;
+
+    &:hover
+        background: darken(#5196D2, 7%);
+
+.edit-button,
+.delete-button
+    float: right;
+
+.edit-button
+    margin-right: 20px;
+
+.disabled-button
+    background: #CCC;
+    cursor: not-allowed;
+
+    &:hover
+        background: #CCC;
+
+#tags-table_wrapper
+    padding-top: 20px;
+    border-top: 1px solid pink;

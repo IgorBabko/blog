@@ -1,0 +1,92 @@
+.discussion-meta-info
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: #C1A2A2;
+	font-size: 12px;
+
+#add-discussion-button
+	float: right;
+	margin-top: 10px;
+	width: 100px;
+	font-size: 25px;
+
+#discussions-list,
+	list-style: none;
+	clear: both;
+	padding: 0;
+	li
+		padding: 20px 0;
+		position: relative;
+		font-size: 22px;
+		border-top: 1px solid rgba(228, 219, 219, 0.56);
+
+		&:last-child
+			border-bottom: 1px solid rgba(228, 219, 219, 0.56);
+
+		a
+			font-size: 22px;
+
+
+#write-comment-block
+	margin-top: 0 !important;
+	padding-bottom: 50px;
+
+#name-input
+	max-width: 300px;
+	margin-bottom: 15px;
+	font-size: 20px;
+
+#ask-textarea
+	height: 100px;
+
+.comment-block
+	display: flex;
+	align-items: flex-start;
+	margin-top: 50px;
+
+	.avatar-block
+		img
+			width: 60px;
+			height: 60px;
+			margin: auto;
+			display: block;
+			border-radius: 50%;
+			box-shadow: 0 1px 1px rgba(0,0,0,0.375);
+
+		.respond-button, .write-button
+			width: 85px;
+			height: 30px;
+			font-size: 18px;
+			display: block;
+			margin: 18px auto 0;
+			box-shadow: 0 1px 1px rgba(0,0,0,0.375);
+
+	.name
+		color: #a94442;
+		margin-bottom: 7px;
+		font-size: 20px;
+		border-bottom: 1px solid #E4DBDB;
+
+	.note-date
+		float: right;
+		color: #C1A2A2;
+		font-size: 12px;
+		margin-top: 10px;
+
+	.comment-info
+		margin-left: 20px;
+		width: 100%;
+
+		.comment
+			display: inline;
+			float: left;
+			padding: 10px 20px;
+
+#responses
+	margin-left: 100px;
+	border-left: 5px solid #E4DBDB;
+	padding-left: 20px;
+
+	.comment-block
+		margin-top: 20px;

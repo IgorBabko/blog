@@ -1,24 +1,10 @@
-<div class="nav-item-block">
-	<span class="nav-item-label">email</span>
-	<a href="/email" class="nav-item-link @if (Request::is('email')) active-link @endif">
-		<span class="glyphicon glyphicon-envelope nav-item-icon"></span>
-	</a>
-</div>
-<div class="nav-item-block">
-	<span class="nav-item-label">ask</span>
-	<a href="/ask" class="nav-item-link @if (Request::is('ask')) active-link @endif">
-		<span class="glyphicon glyphicon-question-sign nav-item-icon"></span>
-	</a>
-</div>
-<div class="nav-item-block">
-	<span class="nav-item-label">posts</span>
-	<a href="/posts" class="nav-item-link @if (Request::is('posts')) active-link @endif">
-		<span class="glyphicon glyphicon-list-alt nav-item-icon"></span>
-	</a>
-</div>
-<div class="nav-item-block">
-	<span class="nav-item-label">bio</span>
-	<a href="/bio" class="nav-item-link @if (Request::is('bio')) active-link @endif">
-		<span class="glyphicon glyphicon-user nav-item-icon"></span>
-	</a>
-</div>
+<nav>
+	<span data-section-id="about-section" class="nav-item-link">About me</span>
+	<span data-section-id="posts-section" class="nav-item-link">Posts</span>
+	<span data-section-id="questions-section" class="nav-item-link">Question</span>
+	{{-- <span data-section-name="polls-section" class="nav-item-link"></span> --}}
+    {{-- <i id="search-icon" class="fa fa-search" style="display: none;"></i> --}}
+    {{-- <div id="search-overlay">
+        <input id="search-input" type="text" placeholder="Here you go!">
+    </div> --}}
+</nav>

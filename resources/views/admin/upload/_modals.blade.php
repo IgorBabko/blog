@@ -4,7 +4,7 @@
 		<div class="modal-content">
 			<form method="POST" action="/admin/upload/folder" class="form-horizontal">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<input type="hidden" name="folder" value="{{ $folder }}">
+				<input type="hidden" name="folder" value="{{ $uploads['folder'] }}">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">
 					&times;
@@ -56,7 +56,7 @@
 				<form method="POST" action="/admin/upload/file">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<input type="hidden" name="_method" value="DELETE">
-					<input type="hidden" name="folder" value="{{ $folder }}">
+					<input type="hidden" name="folder" value="{{ $uploads['folder'] }}">
 					<input type="hidden" name="del_file" id="delete-file-name2">
 					<button type="button" class="btn btn-default" data-dismiss="modal">
 					Cancel
@@ -91,7 +91,7 @@
 				<form method="POST" action="/admin/upload/folder">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<input type="hidden" name="_method" value="DELETE">
-					<input type="hidden" name="folder" value="{{ $folder }}">
+					<input type="hidden" name="folder" value="{{ $uploads['folder'] }}">
 					<input type="hidden" name="del_folder" id="delete-folder-name2">
 					<button type="button" class="btn btn-default" data-dismiss="modal">
 					Cancel
@@ -111,7 +111,7 @@
 			<form method="POST" action="/admin/upload/file"
 				class="form-horizontal" enctype="multipart/form-data">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<input type="hidden" name="folder" value="{{ $folder }}">
+				<input type="hidden" name="folder" value="{{ $uploads['folder'] }}">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">
 					&times;
