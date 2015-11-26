@@ -43,12 +43,16 @@ Route::group(['middleware' => 'ajax'], function () {
     get('/posts', ['as' => 'showPosts', 'uses' => 'BlogController@showPosts']);
     get('/post/{id}', ['as' => 'showPost', 'uses' => 'BlogController@showPost']);
 
+    post('/contact', ['as' => 'sendEmail', 'uses' => 'ContactController@sendContactInfo']);
+
     get('/comments/{postId}', ['as' => 'showComments', 'uses' => 'BlogController@showComments']);
 
     get('/questions', ['as' => 'showQuestions', 'uses' => 'BlogController@showQuestions']);
     get('/question/{id}', ['as' => 'showQuestion', 'uses' => 'BlogController@showQuestion']);
 
     get('/answers/{questionId}', ['as' => 'showAnswers', 'uses' => 'BlogController@showAnswers']);
+
+    get('/category/{categoryId}/posts', ['as' => 'changeCategory', 'uses' => 'BlogController@changeCategory']);
 
     get('/search/{for}/{query}', ['as' => 'search', 'uses' => 'BlogController@search']);
 

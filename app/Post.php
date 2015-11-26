@@ -47,14 +47,14 @@ class Post extends Model
      *
      * @param string $value25
      */
-    public function setTitleAttribute($value)
-    {
-        $this->attributes['title'] = $value;
+    // public function setTitleAttribute($value)
+    // {
+    //     $this->attributes['title'] = $value;
 
-        if (!$this->exists) {
-            $this->setUniqueSlug($value, '');
-        }
-    }
+    //     if (!$this->exists) {
+    //         $this->setUniqueSlug($value, '');
+    //     }
+    // }
 
     /**
      * Recursive routine to set a unique slug
@@ -62,27 +62,27 @@ class Post extends Model
      * @param string $title
      * @param mixed $extra
      */
-    protected function setUniqueSlug($title, $extra)
-    {
-        $slug = str_slug($title . '-' . $extra);
-        if (static::whereSlug($slug)->exists()) {
-            $this->setUniqueSlug($title, $extra + 1);
-            return;
-        }
-        $this->attributes['slug'] = $slug;
-    }
+    // protected function setUniqueSlug($title, $extra)
+    // {
+    //     $slug = str_slug($title . '-' . $extra);
+    //     if (static::whereSlug($slug)->exists()) {
+    //         $this->setUniqueSlug($title, $extra + 1);
+    //         return;
+    //     }
+    //     $this->attributes['slug'] = $slug;
+    // }
 
     /**
      * Set the HTML content automatically when the raw content is set
      *
      * @param string $value
      */
-    public function setContentRawAttribute($value)
-    {
-        $markdown = new Markdowner();
-        $this->attributes['content_raw'] = $value;
-        $this->attributes['content_html'] = $markdown->toHTML($value);
-    }
+    // public function setContentRawAttribute($value)
+    // {
+    //     $markdown = new Markdowner();
+    //     $this->attributes['content_raw'] = $value;
+    //     $this->attributes['content_html'] = $markdown->toHTML($value);
+    // }
 
     /**
      * Sync tag relation adding new tags as needed
@@ -121,8 +121,8 @@ class Post extends Model
     /**
      * Alias for content_raw
      */
-    public function getContentAttribute($value)
-    {
-        return $this->content_raw;
-    }
+    // public function getContentAttribute($value)
+    // {
+    //     return $this->content;
+    // }
 }

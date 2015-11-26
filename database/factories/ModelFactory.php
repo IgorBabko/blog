@@ -20,11 +20,24 @@
 //     ];
 // });
 
+$catId = 0;
+$cat = ['meteor', 'node', 'jquery'];
+
+$factory->define(Blog\Category::class, function ($faker) use ($cat, $catId) {
+    return [
+        'name' => $cat[$catId++],
+    ];
+});
+
 $factory->define(Blog\Post::class, function ($faker) {
+    echo 'bellic';
+
     return [
         'title' => $faker->sentence(mt_rand(3, 10)),
         'thumbnail' => '/assets/img/avatar.png',
-        'content_html' => join("\n\n", $faker->paragraphs(mt_rand(3, 6))),
+        'category_id' => mt_rand(1, 3),
+        'thumbnail' => '/assets/img/avatar.png',
+        'content' => join("\n\n", $faker->paragraphs(mt_rand(3, 6))),
         'published_at' => $faker->dateTimeBetween('-1 month', '+3 days'),
     ];
 });

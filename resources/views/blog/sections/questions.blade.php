@@ -7,11 +7,11 @@
 			<button class="button">Ask</button>
 		</form>
 		<div class="flex-block">
-			<input type="text" class="form-control search-input" placeholder="Search for question:" >
-			<button class="button inline-button"><i class="fa fa-search"></i></button>
+			<input type="text" id="search-questions-input" class="form-control search-input" placeholder="Search for question:" >
+			<button id="search-questions-button" class="button inline-button"><i class="fa fa-search"></i></button>
 		</div>
 		<div id="questions-block">
-			@include('partials.questions-block')
+			@include('blog.partials.questions-block')
 		</div>
 		<div id="question-block"></div>
 	</div>

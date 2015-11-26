@@ -7,5 +7,5 @@
     <em id="posted-date">posted date: {{ $post->published_at->format('M jS Y g:ia') }} </em>
 </div>
 <div id="comments-block">
-    @include('partials.comments-block')
+    @include('blog.partials.comments-block')
 </div>

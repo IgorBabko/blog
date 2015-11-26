@@ -8,5 +8,5 @@
 </div>
 <textarea id="answer-textarea"></textarea>
 <div id="answers-block">
-    @include('partials.answers-block')
+    @include('blog.partials.answers-block')
 </div>

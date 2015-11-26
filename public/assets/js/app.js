@@ -26950,7 +26950,21 @@ else if ( jQuery ) {
         }
     });
 
-    // $("#welcome").fadeIn(1500, function () {
+    $("#contact-form").on("submit", function(e) {
+        e.preventDefault();
+        var $self = $(this);
+
+        $.ajax({
+            'url': "/contact",
+            'method': 'post'
+        }).done(function (flashMsg) {
+            $self.prepend(flashMsg);
+        }).fail(function () {
+            alert('Posts could not be loaded.');
+        });
+    });
+
+    // $("#welcome").fadeIn(1300, function () {
     //     $(this).animate({"opacity": "0.0"}, 1000, function() {
     //         $("body").css("overflow", "auto");
     //     });
@@ -26971,24 +26985,50 @@ else if ( jQuery ) {
 
     // search box handler
 
-    var searchPostQuery = '';
-    var searchQuestionQuery = '';
-    $('#search-posts-button').on('click', search);
-    function searchPost(e) {
-        searchPostQuery = $('#search-post-input').val();
-        getItems('post');
+    function searchPosts(e) {
+        searchPostsQuery = $('#search-posts-input').val();
+        categoryId = "none";
+        getItems('post', '1', true);
     }
-    $('#search-questions-button').on('click', search);
-    function searchQuestion(e) {
-        searchQuestionQuery = $('#search-questions-input').val();
-        getItems('question');
+
+    function searchQuestions(e) {
+        searchQuestionsQuery = $('#search-questions-input').val();
+        categoryId = "none";
+        getItems('question', '1', true);
     }
+
+    var searchPostsQuery = '';
+    var searchQuestionsQuery = '';
+    $('#search-posts-button').on('click', searchPosts);
+    $('#search-questions-button').on('click', searchQuestions);
+
+    function changeCategoryHandler(e) {
+        e.preventDefault();
+
+        categoryId = $(this).attr("id");;
+
+        $.ajax({
+            'url': $(this).attr("href")
+        }).done(function (items) {
+            if(/\S/.test(items)) {
+                $('#posts-block').html(items);
+                $('.items-list').on('click', 'a.clickable', showItem);
+                $htmlAndBody.animate({ scrollTop: $("#posts-block").offset().top - 50}, 300);
+            } else {
+                $('#posts-block').append("No posts in this category.");
+            }
+        }).fail(function () {
+            alert('Posts could not be loaded.');
+        });
+    }
+
+    var categoryId = "none";
+    $("#categories-list").on('click', 'a', changeCategoryHandler);
 
     // ajax posts
 
     function changePage(e) {
         e.preventDefault();
-        console.log('niko');
 
         var pageNumber = $(this).attr('href').split('page=')[1];
 
@@ -27000,17 +27040,10 @@ else if ( jQuery ) {
             resource = 'answer';
         } else if($(this).parents().is("#posts-block") > 0) {
             resource = 'post';
-            $('#'+resource+'-block').slideUp(300);
         } else {
             resource = 'question';
-            $('#'+resource+'-block').slideUp(300);
         }
-
-        if (searhcQuery) {
-
-        } else {
-            getItems(resource, pageNumber);
-        }
+        getItems(resource, pageNumber);
     }
 
     function showItem(e) {
@@ -27028,31 +27061,52 @@ else if ( jQuery ) {
     $('#posts-block, #questions-block').on('click', '.pagination a', changePage);
     $('.items-list').on('click', 'a.clickable', showItem);
 
+    function addResetSearchLink(resource) {
+        $('#'+resource+'s-block').html("<a id='reset-"+resource+"s-search' href='/"+resource+"s'>Reset search</a>");
+        $('#reset-'+resource+'s-search').on('click', function(e) {
+            e.preventDefault();
+            getItems(resource, '1');
+        });
+    }
 
-    function getItems(resource, page) {
+    function getItems(resource, page, isSearchRequest) {
         var url = '';
-        if (searchPostQuery !== '') {
-            url = 'search/'+resource+'/'+searchQuery+'?page='+page;
+        if (isSearchRequest && resource === 'post' && searchPostsQuery !== '') {
+            url = 'search/'+resource+'/'+searchPostsQuery+'?page='+page;
+            addResetSearchLink('post');
+        } else if (isSearchRequest && resource === 'question' && searchQuestionsQuery !== '') {
+            url = 'search/'+resource+'/'+searchQuestionsQuery+'?page='+page;
+            addResetSearchLink('question');
         } else {
-            url = resource+'s/'+parentResourceId+'?page='+page;
-        }
+            var parentResourceId = '';
+            if (resource === 'comment') {
+                parentResourceId = $("article").attr("id");
+            } else if (resource === 'answer') {
+                parentResourceId = $(".question").attr("id");
+            }
 
-        var parentResourceId = '';
-        if (resource === 'comment') {
-            parentResourceId = $("article").attr("id");
-        } else if (resource === 'answer') {
-            parentResourceId = $(".question").attr("id");
+            if(resource === 'post' && categoryId !== 'none') {
+                url = 'category/'+categoryId+'/posts/?page='+page;
+            } else {
+                url = resource+'s/'+parentResourceId+'?page='+page;
+            }
         }
+        $('#'+resource+'-block').slideUp(300);
 
         $.ajax({
             'url': url
         }).done(function (items) {
-            $('#'+resource+'s-block').html(items);
-            // $('#'+resource+'s-block').on('click', '.pagination a', changePage);
-            if (resource !== 'comment' && resource !== 'answer') {
-                $('.items-list').on('click', 'a.clickable', showItem);
+            if(/\S/.test(items)) {
+                $('#'+resource+'s-block').html(items);
+                var parentResource = '';
+                if (resource !== 'comment' && resource !== 'answer') {
+                    $('#'+resource+'s-block .items-list').on('click', 'a.clickable', showItem);
+                }
+                $('#'+resource+'s-block .pagination a').on('click', changePage);
+                $htmlAndBody.animate({ scrollTop: $("#"+resource+"s-block").offset().top - 50}, 300);
+            } else {
+                $('#'+resource+'s-block').append("<br>Nothing has been found.");
             }
-            $htmlAndBody.animate({ scrollTop: $("#"+resource+"s-block").offset().top - 50}, 500);
         }).fail(function () {
             alert(resource + 's could not be loaded.');
         });
@@ -27064,12 +27118,7 @@ else if ( jQuery ) {
         }).done(function (item) {
             $('#'+resource+'-block').html(item).slideDown(300);
             var childResource = '';
-            if (resource === 'post') {
-                childResource = 'comments';
-            } else {
-                childResource = 'answers';
-            }
-            $('#'+childResource+'-block').on('click', '.pagination a', changePage);
+            $('#'+resource+'-block .pagination a').on('click', changePage);
             $htmlAndBody.animate({ scrollTop: $("#"+resource+"-block").offset().top - 74}, 300);
         }).fail(function () {
             alert(resource+' could not be loaded.');

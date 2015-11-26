@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    protected $dates = ['published_at'];
-
     protected $fillable = [
         'name',
     ];

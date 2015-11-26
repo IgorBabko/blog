@@ -6,13 +6,13 @@
 		{{-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
 	</head>
 	<body>
-		@include('partials.header')
+		@include("blog.partials.header")
 		<div id="content">
-			@include("sections.about")
-			@include("sections.posts")
-			@include("sections.questions")
+			@include("blog.sections.about")
+			@include("blog.sections.posts")
+			@include("blog.sections.questions")
 		</div>
-		@include('partials.footer')
+		@include("blog.partials.footer")
 		<script src="/assets/js/app.js"></script>
 		{{-- // <script src="/assets/js/mousewheel.js"></script> --}}
 	</body>
