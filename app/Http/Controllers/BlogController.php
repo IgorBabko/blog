@@ -7,8 +7,10 @@ use Blog\Http\Controllers\Controller;
 use Blog\Post;
 use Blog\Question;
 
-class BlogController extends Controller {
-    public function index() {
+class BlogController extends Controller
+{
+    public function index()
+    {
         $posts = Post::
             // ->orderBy('published_at', 'desc')
             paginate(config('blog.posts_per_page'));
@@ -17,7 +19,7 @@ class BlogController extends Controller {
             // ->orderBy('published_at', 'desc')
             paginate(config('blog.posts_per_page'));
 
-        return view('index', compact('posts', 'questions'));
+        return view('blog.index', compact('posts', 'questions'));
     }
 
     /**
@@ -26,12 +28,13 @@ class BlogController extends Controller {
      * @param  int  $pageId
      * @return \Illuminate\Http\Response
      */
-    public function showPosts() {
+    public function showPosts()
+    {
         $posts = Post::
             // ->orderBy('published_at', 'desc')
             paginate(config('blog.posts_per_page'));
 
-        return view('partials.posts-block', compact('posts'));
+        return view('blog.partials.posts-block', compact('posts'));
     }
 
     /**
@@ -40,13 +43,14 @@ class BlogController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function showPost($id) {
+    public function showPost($id)
+    {
         $post = Post::findOrFail($id);
 
         $comments = $post->comments()
             ->paginate(config('blog.posts_per_page'));
 
-        return view('partials.post-block', compact('post', 'comments'));
+        return view('blog.partials.post-block', compact('post', 'comments'));
     }
 
     /**
@@ -55,13 +59,14 @@ class BlogController extends Controller {
      * @param  int  $postId
      * @return \Illuminate\Http\Response
      */
-    public function showComments($postId) {
+    public function showComments($postId)
+    {
         $post = Post::findOrFail($postId);
 
         $comments = $post->comments()
             ->paginate(config('blog.posts_per_page'));
 
-        return view('partials.comments-block', compact('comments'));
+        return view('blog.partials.comments-block', compact('comments'));
     }
 
     /**
@@ -70,12 +75,13 @@ class BlogController extends Controller {
      * @param  int  $pageId
      * @return \Illuminate\Http\Response
      */
-    public function showQuestions() {
+    public function showQuestions()
+    {
         $questions = Question::
             // ->orderBy('published_at', 'desc')
             paginate(config('blog.posts_per_page'));
 
-        return view('partials.questions-block', compact('questions'));
+        return view('blog.partials.questions-block', compact('questions'));
     }
 
     /**
@@ -84,12 +90,13 @@ class BlogController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function showQuestion($id) {
+    public function showQuestion($id)
+    {
         $question = Question::findOrFail($id);
         $answers = $question->answers()
             ->paginate(config('blog.posts_per_page'));
 
-        return view('partials.question-block', compact('question', 'answers'));
+        return view('blog.partials.question-block', compact('question', 'answers'));
     }
 
     /**
@@ -98,37 +105,40 @@ class BlogController extends Controller {
      * @param  int  $questionId
      * @return \Illuminate\Http\Response
      */
-    public function showAnswers($questionId) {
+    public function showAnswers($questionId)
+    {
         $question = Question::findOrFail($questionId);
 
         $answers = $question->answers()
             ->paginate(config('blog.posts_per_page'));
 
-        return view('partials.answers-block', compact('answers'));
+        return view('blog.partials.answers-block', compact('answers'));
     }
 
-    public function changeCategory($categoryId) {
+    public function changeCategory($categoryId)
+    {
         // echo $categoryId;
         // return '';
         $category = Category::findOrFail($categoryId);
         $posts = $category->posts()
             ->paginate(config('blog.posts_per_page'));
 
-        return view('partials.posts-block', compact('posts'));
+        return view('blog.partials.posts-block', compact('posts'));
     }
 
-    public function search($for, $query) {
+    public function search($for, $query)
+    {
         $query = '%' . $query . '%';
         $results = [];
 
         if ($for === 'post') {
-            $view = 'partials.posts-block';
+            $view = 'blog.partials.posts-block';
             $posts = Post::where('title', 'like', $query)
                 ->where('content', 'like', $query)
                 ->paginate(config('blog.posts_per_page'));
             $results = ['posts' => $posts];
         } else {
-            $view = 'partials.questions-block';
+            $view = 'blog.partials.questions-block';
             $questions = Question::where('title', 'like', $query)
                 ->where('content', 'like', $query)
                 ->paginate(config('blog.posts_per_page'));

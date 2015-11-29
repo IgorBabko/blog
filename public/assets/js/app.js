@@ -26912,6 +26912,12 @@ else if ( jQuery ) {
 
 ;(function($) {
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     var $sections    = $("section"),
         $navLinks    = $(".nav-item-link"),
         $nav         = $("nav"),
@@ -26955,8 +26961,9 @@ else if ( jQuery ) {
         var $self = $(this);
 
         $.ajax({
-            'url': "/contact",
-            'method': 'post'
+            url: "/contact",
+            type: 'post',
+            data:  $self.serialize()
         }).done(function (flashMsg) {
             $self.prepend(flashMsg);
         }).fail(function () {
