@@ -6,6 +6,8 @@ use Blog\Category;
 use Blog\Http\Controllers\Controller;
 use Blog\Post;
 use Blog\Question;
+use Blog\Services\RssFeed;
+use Blog\Services\SiteMap;
 
 class BlogController extends Controller
 {
@@ -146,5 +148,19 @@ class BlogController extends Controller
         }
 
         return view($view, $results);
+    }
+
+    public function rss(RssFeed $feed)
+    {
+        $rss = $feed->getRSS();
+        return response($rss)
+            ->header('Content-type', 'application/rss+xml');
+    }
+
+    public function siteMap(SiteMap $siteMap)
+    {
+        $map = $siteMap->getSiteMap();
+        return response($map)
+            ->header('Content-type', 'text/xml');
     }
 }

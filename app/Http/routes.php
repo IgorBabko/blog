@@ -31,6 +31,12 @@ get('/auth/login', 'Auth\AuthController@getLogin');
 post('/auth/login', 'Auth\AuthController@postLogin');
 get('/auth/logout', 'Auth\AuthController@getLogout');
 
+// RSS
+get('/rss', ['as' => 'rss', 'uses' => 'BlogController@rss']);
+
+// Sitemap
+get('/sitemap.xml', ['as' => 'sitemap', 'uses' => 'BlogController@siteMap']);
+
 // Add the following routes
 // get('admin/upload', 'AdminController@index');
 // post('admin/upload/file', 'AdminController@uploadFile');

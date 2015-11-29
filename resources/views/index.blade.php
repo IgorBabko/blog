@@ -5,6 +5,7 @@
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<link rel="stylesheet" href="/assets/css/app.css">
 		{{-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
+		<link rel="alternate" type="application/rss+xml" href="{{ url('rss') }}" title="RSS Feed {{ config('blog.title') }}">
 	</head>
 	<body>
 		@include("blog.partials.header")
