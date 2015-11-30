@@ -1,4 +1,4 @@
-@import "//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic&subset=latin,cyrillic";
+@import "//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,cyrillic";
 @charset "UTF-8";
 
 /*!
@@ -11504,7 +11504,7 @@ h2 {
 }
 
 body {
-  font-family: 'Helvetica Neue';
+  font-family: 'Helvetica Neue', 'Open Sans', sans-serif;
   font-size: 18px;
   background: url("/assets/img/1.jpeg") 50% 10%;
   background-size: cover;
@@ -11780,11 +11780,12 @@ header {
 
 header #welcome {
   width: 70%;
+  line-height: 1.4;
   text-align: center;
   color: #EFE9E9;
   font-size: 36px;
-  font-weight: 100;
-  text-shadow: 0px 2px 3px #6b4e4d;
+  font-weight: lighter;
+  text-shadow: 0px 1px 2px #000;
 }
 
 nav {
@@ -11827,16 +11828,17 @@ nav .menu-links {
 
 nav .menu-links li {
   color: white;
+  font-weight: 100;
   font-size: 32px;
   height: 100%;
-  border-top: 7px solid #337AB7;
+  border-top: 2px solid #337AB7;
   margin: 0 20px;
-  padding: 0;
+  padding-top: 5px;
 }
 
 nav .menu-links li:hover,
 nav .menu-links li.active-item {
-  border-top: 7px solid white;
+  border-top: 2px solid white;
 }
 
 nav .social-links {
