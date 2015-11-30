@@ -14,7 +14,7 @@
 		</li>
 	</ul>
 
-	<ul class="list-inline text-center social-links" style="display: none">
+	<ul class="list-inline text-center social-links">
 		<li>
 			<a href="{{ url('rss') }}" data-toggle="tooltip"
 				title="RSS feed">
