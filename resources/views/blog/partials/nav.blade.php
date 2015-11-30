@@ -1,10 +1,74 @@
 <nav>
-	<span data-section-id="about-section" class="nav-item-link">About me</span>
-	<span data-section-id="posts-section" class="nav-item-link">Posts</span>
-	<span data-section-id="questions-section" class="nav-item-link">Question</span>
-	{{-- <span data-section-name="polls-section" class="nav-item-link"></span> --}}
-    {{-- <i id="search-icon" class="fa fa-search" style="display: none;"></i> --}}
-    {{-- <div id="search-overlay">
-        <input id="search-input" type="text" placeholder="Here you go!">
-    </div> --}}
+	<ul class="menu-links">
+		<li data-section-id="home-section" class="active-item">
+			Home
+		</li>
+		<li data-section-id="about-section">
+			About
+		</li>
+		<li data-section-id="posts-section">
+			Posts
+		</li>
+		<li data-section-id="questions-section">
+			Questions
+		</li>
+	</ul>
+
+	<ul class="list-inline text-center social-links">
+		<li>
+			<a href="{{ url('rss') }}" data-toggle="tooltip"
+				title="RSS feed">
+				<span class="fa-stack fa-lg">
+					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://twitter.com/iibabko" data-toggle="tooltip"
+				title="My Twitter Page">
+				<span class="fa-stack fa-lg">
+					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://www.facebook.com/profile.php?id=100004232374869" data-toggle="tooltip"
+				title="My Facebook Page">
+				<span class="fa-stack fa-lg">
+					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://www.google.com/+PERSONALIZE" data-toggle="tooltip"
+				title="My Google+ Page">
+				<span class="fa-stack fa-lg">
+					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.linkedin.com/in/PERSONALIZE/"
+				data-toggle="tooltip" title="My LinkedIn Page">
+				<span class="fa-stack fa-lg">
+					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/PERSONALIZE" data-toggle="tooltip"
+				title="My GitHub Pages">
+				<span class="fa-stack fa-lg">
+					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+				</span>
+			</a>
+		</li>
+	</ul>
+
 </nav>

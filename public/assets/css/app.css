@@ -11504,7 +11504,7 @@ h2 {
 }
 
 body {
-  font-family: 'Lora';
+  font-family: 'Helvetica Neue';
   font-size: 18px;
   background: url("/assets/img/1.jpeg") 50% 10%;
   background-size: cover;
@@ -11516,11 +11516,10 @@ body #content {
   color: #6D4949;
   font-size: 16px;
   letter-spacing: .5px;
-  background: #EFE9E9;
+  background: white;
 }
 
 body #content .section-title {
-  background-color: #4b7de1;
   color: #6b4e4d;
   font-weight: bold;
   text-align: center;
@@ -11780,45 +11779,100 @@ header {
 }
 
 header #welcome {
+  width: 70%;
+  text-align: center;
   color: #EFE9E9;
-  font-weight: bold;
-  font-size: 72px;
+  font-size: 36px;
+  font-weight: 100;
   text-shadow: 0px 2px 3px #6b4e4d;
 }
 
 nav {
   position: fixed;
-  z-index: 3;
-  height: 100vh;
+  height: 60px;
   top: 0;
   left: 0;
   width: 100%;
+  background: #337AB7;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: flex-end;
-  -ms-flex-align: end;
-  align-items: flex-end;
-  background-color: rgba(24, 40, 72, 0);
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
-nav .nav-item-link {
-  display: none;
-  color: #EFE9E9;
-  font-weight: bold;
-  font-size: 28px;
-  position: relative;
-  margin: 5px 20px;
-  text-shadow: 0px 2px 3px #6b4e4d;
+nav .social-links,
+nav .menu-links {
+  margin: 0;
+  padding: 0;
 }
 
-nav .nav-item-link.active {
-  color: #fffbc0;
+nav .social-links li,
+nav .menu-links li {
+  display: inline-block;
 }
 
-nav .nav-item-link:hover {
-  color: #fffbc0;
+nav .social-links li:hover,
+nav .menu-links li:hover {
   cursor: pointer;
+}
+
+nav .menu-links {
+  height: 100%;
+}
+
+nav .menu-links li {
+  color: white;
+  font-size: 32px;
+  height: 100%;
+  border-top: 7px solid #337AB7;
+  margin: 0 20px;
+  padding: 0;
+}
+
+nav .menu-links li:hover,
+nav .menu-links li.active-item {
+  border-top: 7px solid white;
+}
+
+nav .social-links {
+  margin-right: 17px;
+}
+
+nav .social-links .fa-circle {
+  color: white;
+}
+
+nav .social-links .fa-inverse {
+  color: #337AB7;
+}
+
+nav .social-links .fa-rss:hover {
+  color: #F90;
+}
+
+nav .social-links .fa-twitter:hover {
+  color: #28A9E0;
+}
+
+nav .social-links .fa-facebook:hover {
+  color: #3B5998;
+}
+
+nav .social-links .fa-linkedin:hover {
+  color: #007AB9;
+}
+
+nav .social-links .fa-github:hover {
+  color: #000;
+}
+
+nav .social-links .fa-google-plus:hover {
+  color: #DD4B38;
 }
 
 .new-button,
