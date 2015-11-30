@@ -26993,241 +26993,473 @@ else if ( jQuery ) {
 })(window, document);
 
 
+/*
+ *  Bootstrap Auto-Hiding Navbar - v1.0.4
+ *  An extension for Bootstrap's fixed navbar which hides the navbar while the page is scrolling downwards and shows it the other way. The plugin is able to show/hide the navbar programmatically as well.
+ *  http://www.virtuosoft.eu/code/bootstrap-autohidingnavbar/
+ *
+ *  Made by István Ujj-Mészáros
+ *  Under Apache License v2.0 License
+ */
+;(function($, window, document, undefined) {
+  var pluginName = 'autoHidingNavbar',
+      $window = $(window),
+      $document = $(document),
+      _scrollThrottleTimer = null,
+      _resizeThrottleTimer = null,
+      _throttleDelay = 70,
+      _lastScrollHandlerRun = 0,
+      _previousScrollTop = null,
+      _windowHeight = $window.height(),
+      _visible = true,
+      _hideOffset,
+      defaults = {
+        disableAutohide: false,
+        showOnUpscroll: true,
+        showOnBottom: true,
+        hideOffset: 'auto', // "auto" means the navbar height
+        animationDuration: 200
+      };
+
+  function AutoHidingNavbar(element, options) {
+    this.element = $(element);
+    this.settings = $.extend({}, defaults, options);
+    this._defaults = defaults;
+    this._name = pluginName;
+    this.init();
+  }
+
+  function hide(autoHidingNavbar) {
+    if (!_visible) {
+      return;
+    }
+
+    autoHidingNavbar.element.addClass('navbar-hidden').animate({
+      top: -autoHidingNavbar.element.height()
+    }, {
+      queue: false,
+      duration: autoHidingNavbar.settings.animationDuration
+    });
+
+    $('.dropdown.open .dropdown-toggle', autoHidingNavbar.element).dropdown('toggle');
+
+    _visible = false;
+  }
+
+  function show(autoHidingNavbar) {
+    if (_visible) {
+      return;
+    }
+
+    autoHidingNavbar.element.removeClass('navbar-hidden').animate({
+      top: 0
+    }, {
+      queue: false,
+      duration: autoHidingNavbar.settings.animationDuration
+    });
+    _visible = true;
+  }
+
+  function detectState(autoHidingNavbar) {
+    var scrollTop = $window.scrollTop(),
+        scrollDelta = scrollTop - _previousScrollTop;
+
+    _previousScrollTop = scrollTop;
+
+    if (scrollDelta < 0) {
+      if (_visible) {
+        return;
+      }
+
+      if (autoHidingNavbar.settings.showOnUpscroll || scrollTop <= _hideOffset) {
+        show(autoHidingNavbar);
+      }
+    }
+    else if (scrollDelta > 0) {
+      if (!_visible) {
+        if (autoHidingNavbar.settings.showOnBottom && scrollTop + _windowHeight === $document.height()) {
+          show(autoHidingNavbar);
+        }
+        return;
+      }
+
+      if (scrollTop >= _hideOffset) {
+        hide(autoHidingNavbar);
+      }
+    }
+
+  }
+
+  function scrollHandler(autoHidingNavbar) {
+    if (autoHidingNavbar.settings.disableAutohide) {
+      return;
+    }
+
+    _lastScrollHandlerRun = new Date().getTime();
+
+    detectState(autoHidingNavbar);
+  }
+
+  function bindEvents(autoHidingNavbar) {
+    $document.on('scroll.' + pluginName, function() {
+      if (new Date().getTime() - _lastScrollHandlerRun > _throttleDelay) {
+        scrollHandler(autoHidingNavbar);
+      }
+      else {
+        clearTimeout(_scrollThrottleTimer);
+        _scrollThrottleTimer = setTimeout(function() {
+          scrollHandler(autoHidingNavbar);
+        }, _throttleDelay);
+      }
+    });
+
+    $window.on('resize.' + pluginName, function() {
+      clearTimeout(_resizeThrottleTimer);
+      _resizeThrottleTimer = setTimeout(function() {
+        _windowHeight = $window.height();
+      }, _throttleDelay);
+    });
+  }
+
+  function unbindEvents() {
+    $document.off('.' + pluginName);
+
+    $window.off('.' + pluginName);
+  }
+
+  AutoHidingNavbar.prototype = {
+    init: function() {
+      this.elements = {
+        navbar: this.element
+      };
+
+      this.setDisableAutohide(this.settings.disableAutohide);
+      this.setShowOnUpscroll(this.settings.showOnUpscroll);
+      this.setShowOnBottom(this.settings.showOnBottom);
+      this.setHideOffset(this.settings.hideOffset);
+      this.setAnimationDuration(this.settings.animationDuration);
+
+      _hideOffset = this.settings.hideOffset === 'auto' ? this.element.height() : this.settings.hideOffset;
+      bindEvents(this);
+
+      return this.element;
+    },
+    setDisableAutohide: function(value) {
+      this.settings.disableAutohide = value;
+      return this.element;
+    },
+    setShowOnUpscroll: function(value) {
+      this.settings.showOnUpscroll = value;
+      return this.element;
+    },
+    setShowOnBottom: function(value) {
+      this.settings.showOnBottom = value;
+      return this.element;
+    },
+    setHideOffset: function(value) {
+      this.settings.hideOffset = value;
+      return this.element;
+    },
+    setAnimationDuration: function(value) {
+      this.settings.animationDuration = value;
+      return this.element;
+    },
+    show: function() {
+      show(this);
+      return this.element;
+    },
+    hide: function() {
+      hide(this);
+      return this.element;
+    },
+    destroy: function() {
+      unbindEvents(this);
+      show(this);
+      $.data(this, 'plugin_' + pluginName, null);
+      return this.element;
+    }
+  };
+
+  $.fn[pluginName] = function(options) {
+    var args = arguments;
+
+    if (options === undefined || typeof options === 'object') {
+      return this.each(function() {
+        if (!$.data(this, 'plugin_' + pluginName)) {
+          $.data(this, 'plugin_' + pluginName, new AutoHidingNavbar(this, options));
+        }
+      });
+    } else if (typeof options === 'string' && options[0] !== '_' && options !== 'init') {
+      var returns;
+
+      this.each(function() {
+        var instance = $.data(this, 'plugin_' + pluginName);
+
+        if (instance instanceof AutoHidingNavbar && typeof instance[options] === 'function') {
+          returns = instance[options].apply(instance, Array.prototype.slice.call(args, 1));
+        }
+      });
+
+      return returns !== undefined ? returns : this;
+    }
+
+  };
+
+})(jQuery, window, document);
+
 ;(function($) {
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+  $("nav").autoHidingNavbar({
+
+  });
+
+  var $sections = $("section"),
+    $navLinks = $(".nav-item-link"),
+    $nav = $("nav"),
+    $htmlAndBody = $("html, body");
+  $window = $(window);
+
+  $navLinks.on("click", function() {
+    var $self = $(this);
+    var sectionId = $self.data("section-id");
+
+    $htmlAndBody.animate({
+      scrollTop: $("#" + sectionId).offset().top - 50
+    }, 600, function() {
+      $navLinks.removeClass("active");
+      $self.addClass("active");
     });
+  });
 
-    var $sections    = $("section"),
-        $navLinks    = $(".nav-item-link"),
-        $nav         = $("nav"),
-        $htmlAndBody = $("html, body");
-        $window      = $(window);
+  $window.on("unload", function() {
+    window.scrollTo(0, 0);
+  });
 
-    $navLinks.on("click", function() {
-        var $self = $(this);
-        var sectionId = $self.data("section-id");
+  $window.on('mousewheel scroll', function() {
+    var aboveBlocks = $sections.map(function(i, section) {
+      if (section.getBoundingClientRect().top <= 50) {
+        return section;
+      }
+    });
+    $navLinks.removeClass("active");
+    $($navLinks[aboveBlocks.length - 1]).addClass("active");
 
+    if ($window.scrollTop() >= $window.height() - 50) {
+      $nav.css({
+        "height": "50px",
+        "background-color": "rgba(24, 40, 72, 1)"
+      });
+    } else {
+      $nav.css({
+        "height": ($window.height() - $window.scrollTop()) + "px",
+        "background-color": "rgba(24, 40, 72, " + $window.scrollTop() / $window.height() + ")"
+      });
+    }
+  });
+
+  $("#contact-form").on("submit", function(e) {
+    e.preventDefault();
+    var $self = $(this);
+
+    $.ajax({
+      url: "/contact",
+      type: 'post',
+      data: $self.serialize()
+    }).done(function(flashMsg) {
+      $self.prepend(flashMsg);
+    }).fail(function() {
+      alert('Posts could not be loaded.');
+    });
+  });
+
+  // $("#welcome").fadeIn(1300, function () {
+  //     $(this).animate({"opacity": "0.0"}, 1000, function() {
+  //         $("body").css("overflow", "auto");
+  //     });
+  //     $navLinks.fadeIn(1000);
+
+  // $htmlAndBody.animate({
+  //     scrollTop: $("#about-section").offset().top - 50
+  // }, 1000, function() {
+
+  // });
+  // });
+
+  $navLinks.each(function(i, link) {
+    setTimeout(function() {
+      $(link).fadeIn(300);
+    }, i * 300);
+  });
+
+  // search box handler
+
+  function searchPosts(e) {
+    searchPostsQuery = $('#search-posts-input').val();
+    categoryId = "none";
+    getItems('post', '1', true);
+  }
+
+  function searchQuestions(e) {
+    searchQuestionsQuery = $('#search-questions-input').val();
+    categoryId = "none";
+    getItems('question', '1', true);
+  }
+
+  var searchPostsQuery = '';
+  var searchQuestionsQuery = '';
+  $('#search-posts-button').on('click', searchPosts);
+  $('#search-questions-button').on('click', searchQuestions);
+
+  function changeCategoryHandler(e) {
+    e.preventDefault();
+
+    categoryId = $(this).attr("id");;
+
+    $.ajax({
+      'url': $(this).attr("href")
+    }).done(function(items) {
+      if (/\S/.test(items)) {
+        $('#posts-block').html(items);
+        $('.items-list').on('click', 'a.clickable', showItem);
         $htmlAndBody.animate({
-            scrollTop: $("#" + sectionId).offset().top - 50
-        }, 600, function() {
-            $navLinks.removeClass("active");
-            $self.addClass("active");
-        });
+          scrollTop: $("#posts-block").offset().top - 50
+        }, 300);
+      } else {
+        $('#posts-block').append("No posts in this category.");
+      }
+    }).fail(function() {
+      alert('Posts could not be loaded.');
     });
+  }
 
-    $window.on("unload", function() {
-        window.scrollTo(0, 0);
+  var categoryId = "none";
+  $("#categories-list").on('click', 'a', changeCategoryHandler);
+
+  // ajax posts
+
+  function changePage(e) {
+    e.preventDefault();
+
+    var pageNumber = $(this).attr('href').split('page=')[1];
+
+    var resource = "";
+
+    if ($(this).parents().is("#comments-block") > 0) {
+      resource = 'comment';
+    } else if ($(this).parents().is("#answers-block") > 0) {
+      resource = 'answer';
+    } else if ($(this).parents().is("#posts-block") > 0) {
+      resource = 'post';
+    } else {
+      resource = 'question';
+    }
+    getItems(resource, pageNumber);
+  }
+
+  function showItem(e) {
+    e.preventDefault();
+    var resource = "";
+
+    if ($(this).parents().is("#posts-block") > 0) {
+      resource = 'post';
+    } else {
+      resource = 'question';
+    }
+    getItem(resource, $(this).attr('href'));
+  }
+
+  $('#posts-block, #questions-block').on('click', '.pagination a', changePage);
+  $('.items-list').on('click', 'a.clickable', showItem);
+
+  function addResetSearchLink(resource) {
+    $('#' + resource + 's-block').html("<a id='reset-" + resource + "s-search' href='/" + resource + "s'>Reset search</a>");
+    $('#reset-' + resource + 's-search').on('click', function(e) {
+      e.preventDefault();
+      getItems(resource, '1');
     });
+  }
 
-    $window.on('mousewheel scroll', function() {
-        var aboveBlocks = $sections.map(function(i, section) {
-            if(section.getBoundingClientRect().top <= 50) {
-                return section;
-            }
-        });
-        $navLinks.removeClass("active");
-        $($navLinks[aboveBlocks.length - 1]).addClass("active");
+  function getItems(resource, page, isSearchRequest) {
+    var url = '';
+    if (isSearchRequest && resource === 'post' && searchPostsQuery !== '') {
+      url = 'search/' + resource + '/' + searchPostsQuery + '?page=' + page;
+      addResetSearchLink('post');
+    } else if (isSearchRequest && resource === 'question' && searchQuestionsQuery !== '') {
+      url = 'search/' + resource + '/' + searchQuestionsQuery + '?page=' + page;
+      addResetSearchLink('question');
+    } else {
+      var parentResourceId = '';
+      if (resource === 'comment') {
+        parentResourceId = $("article").attr("id");
+      } else if (resource === 'answer') {
+        parentResourceId = $(".question").attr("id");
+      }
 
-        if ($window.scrollTop() >= $window.height() - 50) {
-            $nav.css({"height": "50px", "background-color": "rgba(107, 78, 77, 1)"});
-        } else {
-            $nav.css({"height": ($window.height() - $window.scrollTop()) + "px", "background-color": "rgba(107, 78, 77, " + $window.scrollTop() / $window.height() + ")" });
+      if (resource === 'post' && categoryId !== 'none') {
+        url = 'category/' + categoryId + '/posts/?page=' + page;
+      } else {
+        url = resource + 's/' + parentResourceId + '?page=' + page;
+      }
+    }
+    $('#' + resource + '-block').slideUp(300);
+
+    $.ajax({
+      'url': url
+    }).done(function(items) {
+      if (/\S/.test(items)) {
+        $('#' + resource + 's-block').html(items);
+        var parentResource = '';
+        if (resource !== 'comment' && resource !== 'answer') {
+          $('#' + resource + 's-block .items-list').on('click', 'a.clickable', showItem);
         }
+        $('#' + resource + 's-block .pagination a').on('click', changePage);
+        $htmlAndBody.animate({
+          scrollTop: $("#" + resource + "s-block").offset().top - 50
+        }, 300);
+      } else {
+        $('#' + resource + 's-block').append("<br>Nothing has been found.");
+      }
+    }).fail(function() {
+      alert(resource + 's could not be loaded.');
     });
+  }
 
-    $("#contact-form").on("submit", function(e) {
-        e.preventDefault();
-        var $self = $(this);
-
-        $.ajax({
-            url: "/contact",
-            type: 'post',
-            data:  $self.serialize()
-        }).done(function (flashMsg) {
-            $self.prepend(flashMsg);
-        }).fail(function () {
-            alert('Posts could not be loaded.');
-        });
+  function getItem(resource, url) {
+    $.ajax({
+      'url': url,
+    }).done(function(item) {
+      $('#' + resource + '-block').html(item).slideDown(300);
+      var childResource = '';
+      $('#' + resource + '-block .pagination a').on('click', changePage);
+      $htmlAndBody.animate({
+        scrollTop: $("#" + resource + "-block").offset().top - 74
+      }, 300);
+    }).fail(function() {
+      alert(resource + ' could not be loaded.');
     });
+  }
 
-    // $("#welcome").fadeIn(1300, function () {
-    //     $(this).animate({"opacity": "0.0"}, 1000, function() {
-    //         $("body").css("overflow", "auto");
-    //     });
-    //     $navLinks.fadeIn(1000);
-
-        // $htmlAndBody.animate({
-        //     scrollTop: $("#about-section").offset().top - 50
-        // }, 1000, function() {
-
-        // });
-    // });
-
-    $navLinks.each(function(i, link) {
-        setTimeout(function() {
-            $(link).fadeIn(300);
-        }, i * 300);
+  function showCreatePostForm() {
+    $.ajax({
+      'url': url,
+    }).done(function(createPostForm) {
+      $("#post-area").html(createPostForm).slideDown(300);
+      $htmlAndBody.animate({
+        scrollTop: $("#post-area").offset().top - 74
+      }, 300);
+    }).fail(function() {
+      alert('Post could not be loaded.');
     });
+  }
 
-    // search box handler
-
-    function searchPosts(e) {
-        searchPostsQuery = $('#search-posts-input').val();
-        categoryId = "none";
-        getItems('post', '1', true);
-    }
-
-    function searchQuestions(e) {
-        searchQuestionsQuery = $('#search-questions-input').val();
-        categoryId = "none";
-        getItems('question', '1', true);
-    }
-
-    var searchPostsQuery = '';
-    var searchQuestionsQuery = '';
-    $('#search-posts-button').on('click', searchPosts);
-    $('#search-questions-button').on('click', searchQuestions);
-
-    function changeCategoryHandler(e) {
-        e.preventDefault();
-
-        categoryId = $(this).attr("id");;
-
-        $.ajax({
-            'url': $(this).attr("href")
-        }).done(function (items) {
-            if(/\S/.test(items)) {
-                $('#posts-block').html(items);
-                $('.items-list').on('click', 'a.clickable', showItem);
-                $htmlAndBody.animate({ scrollTop: $("#posts-block").offset().top - 50}, 300);
-            } else {
-                $('#posts-block').append("No posts in this category.");
-            }
-        }).fail(function () {
-            alert('Posts could not be loaded.');
-        });
-    }
-
-    var categoryId = "none";
-    $("#categories-list").on('click', 'a', changeCategoryHandler);
-
-    // ajax posts
-
-    function changePage(e) {
-        e.preventDefault();
-
-        var pageNumber = $(this).attr('href').split('page=')[1];
-
-        var resource = "";
-
-        if ($(this).parents().is("#comments-block") > 0) {
-            resource = 'comment';
-        } else if($(this).parents().is("#answers-block") > 0) {
-            resource = 'answer';
-        } else if($(this).parents().is("#posts-block") > 0) {
-            resource = 'post';
-        } else {
-            resource = 'question';
-        }
-        getItems(resource, pageNumber);
-    }
-
-    function showItem(e) {
-        e.preventDefault();
-        var resource = "";
-
-        if ($(this).parents().is("#posts-block") > 0) {
-            resource = 'post';
-        } else {
-            resource = 'question';
-        }
-        getItem(resource, $(this).attr('href'));
-    }
-
-    $('#posts-block, #questions-block').on('click', '.pagination a', changePage);
-    $('.items-list').on('click', 'a.clickable', showItem);
-
-    function addResetSearchLink(resource) {
-        $('#'+resource+'s-block').html("<a id='reset-"+resource+"s-search' href='/"+resource+"s'>Reset search</a>");
-        $('#reset-'+resource+'s-search').on('click', function(e) {
-            e.preventDefault();
-            getItems(resource, '1');
-        });
-    }
-
-    function getItems(resource, page, isSearchRequest) {
-        var url = '';
-        if (isSearchRequest && resource === 'post' && searchPostsQuery !== '') {
-            url = 'search/'+resource+'/'+searchPostsQuery+'?page='+page;
-            addResetSearchLink('post');
-        } else if (isSearchRequest && resource === 'question' && searchQuestionsQuery !== '') {
-            url = 'search/'+resource+'/'+searchQuestionsQuery+'?page='+page;
-            addResetSearchLink('question');
-        } else {
-            var parentResourceId = '';
-            if (resource === 'comment') {
-                parentResourceId = $("article").attr("id");
-            } else if (resource === 'answer') {
-                parentResourceId = $(".question").attr("id");
-            }
-
-            if(resource === 'post' && categoryId !== 'none') {
-                url = 'category/'+categoryId+'/posts/?page='+page;
-            } else {
-                url = resource+'s/'+parentResourceId+'?page='+page;
-            }
-        }
-        $('#'+resource+'-block').slideUp(300);
-
-        $.ajax({
-            'url': url
-        }).done(function (items) {
-            if(/\S/.test(items)) {
-                $('#'+resource+'s-block').html(items);
-                var parentResource = '';
-                if (resource !== 'comment' && resource !== 'answer') {
-                    $('#'+resource+'s-block .items-list').on('click', 'a.clickable', showItem);
-                }
-                $('#'+resource+'s-block .pagination a').on('click', changePage);
-                $htmlAndBody.animate({ scrollTop: $("#"+resource+"s-block").offset().top - 50}, 300);
-            } else {
-                $('#'+resource+'s-block').append("<br>Nothing has been found.");
-            }
-        }).fail(function () {
-            alert(resource + 's could not be loaded.');
-        });
-    }
-
-    function getItem(resource, url) {
-        $.ajax({
-            'url': url,
-        }).done(function (item) {
-            $('#'+resource+'-block').html(item).slideDown(300);
-            var childResource = '';
-            $('#'+resource+'-block .pagination a').on('click', changePage);
-            $htmlAndBody.animate({ scrollTop: $("#"+resource+"-block").offset().top - 74}, 300);
-        }).fail(function () {
-            alert(resource+' could not be loaded.');
-        });
-    }
-
-    function showCreatePostForm() {
-        $.ajax({
-            'url': url,
-        }).done(function (createPostForm) {
-            $("#post-area").html(createPostForm).slideDown(300);
-            $htmlAndBody.animate({ scrollTop: $("#post-area").offset().top - 74}, 300);
-        }).fail(function () {
-            alert('Post could not be loaded.');
-        });
-    }
-
-    $("#create-post-button").on("click", function() {
-        showCreatePostForm();
-    });
+  $("#create-post-button").on("click", function() {
+    showCreatePostForm();
+  });
 
 })(jQuery);

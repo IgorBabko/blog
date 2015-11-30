@@ -11517,7 +11517,7 @@ body #content {
 }
 
 body #content .section-title {
-  background-color: #e8dfdf;
+  background-color: #4b7de1;
   color: #6b4e4d;
   font-weight: bold;
   text-align: center;
@@ -11774,7 +11774,7 @@ header {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background: url("/assets/img/header-img-s.jpg") 50% 10%;
+  background: url("/assets/img/1.jpeg") 50% 10%;
   background-size: cover;
 }
 
@@ -11799,7 +11799,7 @@ nav {
   -webkit-align-items: flex-end;
   -ms-flex-align: end;
   align-items: flex-end;
-  background-color: rgba(107, 78, 77, 0);
+  background-color: rgba(24, 40, 72, 0);
 }
 
 nav .nav-item-link {
