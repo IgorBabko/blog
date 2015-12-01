@@ -11789,9 +11789,18 @@ header #welcome {
   text-shadow: 0px 2px 5px #000;
 }
 
+header #welcome #discover-button {
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 0 #3796A5;
+}
+
+header #welcome #discover-button:hover {
+  box-shadow: 0 0 35px #3796A5;
+}
+
 header #welcome .btn-primary {
-  background-color: #3A7896;
-  border-color: #3A7896;
+  background-color: #3796A5;
+  border-color: #3796A5;
   width: 200px;
   height: 70px;
   margin-top: 25px;
@@ -11800,12 +11809,9 @@ header #welcome .btn-primary {
 }
 
 nav {
-  position: fixed;
   height: 60px;
-  top: 0;
-  left: 0;
   width: 100%;
-  background: #3A7896;
+  background: #3796A5;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -11842,7 +11848,7 @@ nav .menu-links li {
   font-weight: 100;
   font-size: 32px;
   height: 100%;
-  border-top: 2px solid #3A7896;
+  border-top: 2px solid #3796A5;
   margin: 0 20px;
   padding-top: 5px;
 }
@@ -11856,36 +11862,50 @@ nav .social-links {
   margin-right: 17px;
 }
 
+nav .social-links li {
+  padding: 0;
+  margin-left: 15px;
+}
+
+nav .social-links .fa-stack {
+  width: 1.7em;
+  border-radius: 50%;
+}
+
+nav .social-links .fa-stack:hover i:last-child {
+  color: white;
+}
+
 nav .social-links .fa-circle {
   color: white;
 }
 
 nav .social-links .fa-inverse {
-  color: #3A7896;
+  color: #3796A5;
 }
 
-nav .social-links .fa-rss:hover {
+nav .social-links .rss:hover i:first-child {
   color: #F90;
 }
 
-nav .social-links .fa-twitter:hover {
-  color: #28A9E0;
+nav .social-links .twitter:hover i:first-child {
+  color: #04B7EC;
 }
 
-nav .social-links .fa-facebook:hover {
-  color: #3B5998;
+nav .social-links .facebook:hover i:first-child {
+  color: #4A6EAA;
 }
 
-nav .social-links .fa-linkedin:hover {
-  color: #007AB9;
+nav .social-links .linkedin:hover i:first-child {
+  color: #0077B5;
 }
 
-nav .social-links .fa-github:hover {
-  color: #000;
+nav .social-links .google-plus:hover i:first-child {
+  color: #DC4A38;
 }
 
-nav .social-links .fa-google-plus:hover {
-  color: #DD4B38;
+nav .social-links .github:hover i:first-child {
+  color: #323131;
 }
 
 .new-button,

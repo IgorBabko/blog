@@ -27215,11 +27215,6 @@ else if ( jQuery ) {
     }
   });
 
-  $("nav").autoHidingNavbar({
-    showOnBottom: true,
-    hideOffset: 0
-  });
-
   var $sections = $("section"),
     $navLinks = $(".nav-item-link"),
     $nav = $("nav"),
@@ -27242,6 +27237,48 @@ else if ( jQuery ) {
     window.scrollTo(0, 0);
   });
 
+  // $("nav").autoHidingNavbar({
+  //   showOnBottom: true,
+  //   hideOffset: 0
+  // });
+  // $("nav").hide();
+
+
+  $("#discover-button").on("click", function(e) {
+    $htmlAndBody.animate({
+      scrollTop: $("nav").offset().top
+    }, 600);
+  });
+
+  var n = false;
+  $window.on('mousewheel scroll', function() {
+    if ($window.scrollTop() >= $window.height() && !n) {
+      $("nav").css({
+        "position": "fixed",
+        "top": "0",
+        "left": "0"
+      });
+      n = true;
+    } else if ($window.scrollTop() < $window.height() && n) {
+      $("nav").css("position", "static");
+      n = false;
+    }
+  });
+
+
+  // var n = false;
+  // $window.on('mousewheel scroll', function() {
+  //   if ($window.scrollTop() >= $window.height() && !n) {
+  //     $("nav").css("display", "flex").autoHidingNavbar({
+  //       showOnBottom: true,
+  //       hideOffset: 0
+  //     });
+  //     n = true;
+  //   } else if ($window.scrollTop() < $window.height() && n) {
+  //     $("nav").css("display", "none").autoHidingNavbar('hide');
+  //     n = false;
+  //   }
+  // });
   // $window.on('mousewheel scroll', function() {
   //   var aboveBlocks = $sections.map(function(i, section) {
   //     if (section.getBoundingClientRect().top <= 50) {
