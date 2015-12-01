@@ -11587,29 +11587,47 @@ body #content .section-content {
 
 #categories #categories-list {
   list-style: none;
+  margin: 0 0 50px 0;
+  padding: 0;
   text-align: center;
-  padding: 20px 0 40px;
 }
 
 #categories #categories-list li {
   display: inline-block;
-  padding: 0px;
-  width: 190px;
-  color: #C1A2A2;
-  margin: 10px 10px;
   text-align: center;
   font-size: 24px;
   cursor: pointer;
-  background-color: #F5F0F0;
-  box-shadow: 0 2px 3px #BF9D9D;
+  color: #3796A5;
+  margin: 0 20px;
 }
 
-#categories #categories-list li:hover {
-  background-color: #E8DFDF;
+#categories #categories-list li a {
+  text-decoration: none;
 }
 
-#categories #categories-list li img {
-  width: 100%;
+#categories #categories-list li a .category-img-wrapper {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 7px solid #3796A5;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+#categories #categories-list li a .category-img-wrapper img {
+  width: 150px;
+}
+
+#categories #categories-list li a figcaption {
+  color: #3796A5;
+  margin: 15px 0 25px 0;
 }
 
 #page-number {
