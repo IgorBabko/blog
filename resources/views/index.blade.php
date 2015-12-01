@@ -11,6 +11,7 @@
 		@include("blog.partials.header")
 		<div id="content">
 			@include("blog.sections.about")
+			@include("blog.sections.contact")
 			@include("blog.sections.posts")
 			@include("blog.sections.questions")
 		</div>

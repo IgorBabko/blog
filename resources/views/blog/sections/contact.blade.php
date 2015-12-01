@@ -1,10 +1,6 @@
-<!-- <p>
-    Want to get in touch with me? Fill out the form below to send me a
-    message and I will try to get back to you within 24 hours!
-</p> -->
 <section id="contact-section">
     <h1 class="section-title">Contact</h1>
-    <form action="/contact" method="post" id="contact-form">
+    <form action="/contact" method="post" class="section-content">
         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
         <div class="form-group">
             <label for="name">Name:</label>

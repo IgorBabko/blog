@@ -1,10 +1,10 @@
-<hr>
+<!-- <hr>
 <div class="container">
     <div class="col-lg-8 col-lg-offset-2 col-md col-md-offset-1">
         @include('blog.partials.disqus')
     </div>
 </div>
-<hr>
+<hr> -->
 <footer>
     <div class="container">
         <div class="row">

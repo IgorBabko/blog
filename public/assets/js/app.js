@@ -27258,11 +27258,11 @@ else if ( jQuery ) {
         "top": "0",
         "left": "0"
       });
-      $("#content").css("padding-top", "110px");
+      $("#content").css("padding-top", "60px");
       n = true;
     } else if ($window.scrollTop() < $window.height() && n) {
       $("nav").css("position", "static");
-      $("#content").css("padding-top", "50px");
+      $("#content").css("padding-top", "0");
       n = false;
     }
   });

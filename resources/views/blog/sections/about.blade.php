@@ -11,6 +11,5 @@
         </p>
         <p>mollitia ratione neque quisquam! Voluptatum quas, ea repudiandae aperiam commodi alias, dolores doloribus distinctio minima autem saepe dolorum possimus in, illo officiis soluta. Earum cumque fugit, ad quo obcaecati. Error saepe laborum, rem mollitia est illo iusto asperiores, sit debitis ipsam ullam, distinctio quos provident commodi veritatis obcaecati quibusdam impedit id, optio alias facilis assumenda eum. Recusandae error, soluta. </p>
         <p>Consectetur consequatur, iusto voluptatem aperiam, ducimus itaque laboriosam optio tenetur odit iste mollitia unde nemo natus, quas error aut omnis reprehenderit quia aspernatur corporis minus quasi, aliquam praesentium minima. Doloribus repellat suscipit error nemo magni fugit culpa voluptate possimus earum!</p>
-        @include('blog.partials.contact')
     </div>
 </section>
