@@ -11618,7 +11618,6 @@ body #content .section-content {
 #categories #categories-list li a .category-img-wrapper {
   width: 200px;
   height: 200px;
-  border-radius: 50%;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -11636,6 +11635,7 @@ body #content .section-content {
 
 #categories #categories-list li a figcaption {
   color: #4d37a5;
+  font-weight: 100;
 }
 
 .page-number {
@@ -11950,7 +11950,7 @@ nav .social-links .github:hover i:first-child {
 }
 
 footer {
-  background: #3796A5;
+  background: #edebf6;
   height: 400px;
 }
 
