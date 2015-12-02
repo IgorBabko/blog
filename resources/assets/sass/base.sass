@@ -28,7 +28,7 @@ a:active,
 a:focus,
 a:visited
     outline: 0
-    color: #7B4140
+    color: $main-color-dark
 
 form
     max-width: 800px
@@ -52,7 +52,7 @@ select.form-control:focus
 select.form-control
     border: 1px solid rgba(55, 150, 165, 0.5)
     height: 45px
-    color: #3796A5
+    color: $main-color-dark
     font-size: 25px
     box-shadow: 0 0 0 rgba(55, 150, 165, 0.5)
 
@@ -72,6 +72,9 @@ h2
     font-weight: 100
     text-align: center
 
+h3
+    font-weight: 100
+
 .button
     border: none
     color: #EFE9E9
@@ -86,28 +89,45 @@ h2
     &:focus
         outline: none
 
-.pagination > .active > span
-    background: #BF9D9D
-    border-color: #BF9D9D
-    color: #f5f0f0
+.pagination
+    text-align: center !important
+    margin: 0 auto
+
+
+.pagination li span,
+.pagination li a
+    margin: 0 10px
+    border-radius: 50% !important
+
+.pagination > .active > a
+    background: $main-color-dark
+    border-color: $main-color-dark
+    color: white
 
 .pagination > li > a,
 .pagination > li > span,
-.pagination > .disabled > span,
-.pagination > .disabled > span:hover,
 .pagination > .active > span:hover,
-    background: #EFE9E9
-    border-color: #BF9D9D
-    color: #BF9D9D
+    background: $main-color-light
+    border-color: $main-color-light
+    color: $main-color-dark
+
+.pagination > .active > a:hover
+    background: $main-color-dark
+    color: white
+    border-color: $main-color-dark
+
 
 .pagination > li > a:hover,
 .pagination > li > a:focus
-    background: #f5f0f0
-    border-color: #BF9D9D
-    color: #BF9D9D
+    background: $main-color-dark
+    border-color: $main-color-dark
+    color: white
 
-.pagination > .disabled > span,
-    background-color: #e8dfdf
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover
+    background-color: #EAEAEA
+    border-color: #EAEAEA
+    color: gray
 
 // .pagination > li > a:hover,
 // .pagination > li > a:focus
@@ -116,15 +136,9 @@ h2
 //     color: #BF9D9D
 //     text-decoration: underline
 
-.pagination > .active > span:hover
-    background: #BF9D9D
-    color: #EFE9E9
-
-.pagination > li:first-child > span,
-.pagination > li:last-child > span,
-.pagination > li:first-child > a,
-.pagination > li:last-child > a,
-    border-radius: 0
+// .pagination > .active > span:hover
+//     background: #BF9D9D
+//     color: #EFE9E9
 
 body
     font-family: 'Helvetica Neue', 'Open Sans', sans-serif
@@ -143,7 +157,7 @@ body
         background: white
 
         .section-title
-            color: rgba(55,150,165,0.5)
+            color: $main-color-dark
             font:
                 size: 72px
                 weight: 100

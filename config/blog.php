@@ -8,6 +8,7 @@ return [
     'author' => 'Igor Babko',
     'page_image' => 'home-bg.jpg',
     'posts_per_page' => 5,
+    'link_limit' => 7,
     'rss_size' => 25,
     'uploads' => [
         'storage' => 'local',
