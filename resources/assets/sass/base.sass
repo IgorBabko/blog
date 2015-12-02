@@ -30,7 +30,7 @@ a:visited
     outline: 0
     color: $main-color-dark
 
-form
+#contact-form
     max-width: 800px
     margin: 0 auto
 
@@ -78,7 +78,7 @@ h3
 .button
     border: none
     color: #EFE9E9
-    background: #bf9d9d
+    background: $main-color
     // box-shadow: 0 1px 1px rgba(0,0,0,0.575)
     // display: block
 
@@ -100,8 +100,8 @@ h3
     border-radius: 50% !important
 
 .pagination > .active > a
-    background: $main-color-dark
-    border-color: $main-color-dark
+    background: $main-color
+    border-color: $main-color
     color: white
 
 .pagination > li > a,
@@ -109,18 +109,18 @@ h3
 .pagination > .active > span:hover,
     background: $main-color-light
     border-color: $main-color-light
-    color: $main-color-dark
+    color: $main-color
 
 .pagination > .active > a:hover
-    background: $main-color-dark
+    background: $main-color
     color: white
-    border-color: $main-color-dark
+    border-color: $main-color
 
 
 .pagination > li > a:hover,
 .pagination > li > a:focus
-    background: $main-color-dark
-    border-color: $main-color-dark
+    background: $main-color
+    border-color: $main-color
     color: white
 
 .pagination > .disabled > a,
@@ -157,7 +157,7 @@ body
         background: white
 
         .section-title
-            color: $main-color-dark
+            color: $main-color
             font:
                 size: 72px
                 weight: 100
@@ -184,3 +184,21 @@ body
 
 #plus-button
     line-height: 1.9
+
+.item-meta-info
+    position: absolute
+    top: 0
+    right: 0
+    margin: 5px
+    color: $main-color-dark
+    font-size: 12px
+    font-weight: 100
+
+.pagination-block
+    text-align: center
+
+.items-list li
+    background: rgb(246, 245, 251)
+
+.items-list a
+    padding: 20px

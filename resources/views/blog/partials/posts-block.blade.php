@@ -1,12 +1,12 @@
 @if($posts->count() !== 0)
-    <div style="text-align: center">
+    <div class="pagination-block">
         @include('pagination.limit_links', ['paginator' => $posts])
     </div>
     <ul class="items-list">
         @foreach ($posts as $post)
         <li>
             <a href="/post/{{ $post->id }}" class="clickable">
-                <img class="post-thumbnail" src="{{ $post->thumbnail }}" alt="post_thumbnail">
+                <!-- <img class="post-thumbnail" src="{{ $post->thumbnail }}" alt="post_thumbnail"> -->
                 <div class="item-meta-info">
                     <em class="comment-amount">comments: 5</em> |
                     <em class="posted-date">posted date: {{ $post->published_at->format('M jS Y g:ia') }}</em>

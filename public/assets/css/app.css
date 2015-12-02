@@ -11399,7 +11399,7 @@ a:visited {
   color: #4d37a5;
 }
 
-form {
+#contact-form {
   max-width: 800px;
   margin: 0 auto;
 }
@@ -11457,7 +11457,7 @@ h3 {
 .button {
   border: none;
   color: #EFE9E9;
-  background: #bf9d9d;
+  background: #8272c0;
 }
 
 .button:hover {
@@ -11481,8 +11481,8 @@ h3 {
 }
 
 .pagination > .active > a {
-  background: #4d37a5;
-  border-color: #4d37a5;
+  background: #8272c0;
+  border-color: #8272c0;
   color: white;
 }
 
@@ -11491,19 +11491,19 @@ h3 {
 .pagination > .active > span:hover {
   background: #edebf6;
   border-color: #edebf6;
-  color: #4d37a5;
+  color: #8272c0;
 }
 
 .pagination > .active > a:hover {
-  background: #4d37a5;
+  background: #8272c0;
   color: white;
-  border-color: #4d37a5;
+  border-color: #8272c0;
 }
 
 .pagination > li > a:hover,
 .pagination > li > a:focus {
-  background: #4d37a5;
-  border-color: #4d37a5;
+  background: #8272c0;
+  border-color: #8272c0;
   color: white;
 }
 
@@ -11532,7 +11532,7 @@ body #content {
 }
 
 body #content .section-title {
-  color: #4d37a5;
+  color: #8272c0;
   font-size: 72px;
   font-weight: 100;
   text-align: center;
@@ -11567,6 +11567,28 @@ body #content .section-content {
   line-height: 1.9;
 }
 
+.item-meta-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px;
+  color: #4d37a5;
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.pagination-block {
+  text-align: center;
+}
+
+.items-list li {
+  background: #f6f5fb;
+}
+
+.items-list a {
+  padding: 20px;
+}
+
 #me-img {
   border-radius: 50%;
   width: 300px;
@@ -11574,16 +11596,18 @@ body #content .section-content {
   display: block;
 }
 
-#submit-email-button {
+#submit-email-button,
+#ask-question-button {
   width: 120px;
   color: white;
   font-size: 28px;
   font-weight: 100;
-  background-color: rgba(55, 150, 165, 0.5);
+  background-color: #8272c0;
 }
 
-#submit-email-button:hover {
-  background-color: #3796A5;
+#submit-email-button:hover,
+#ask-question-button:hover {
+  background-color: #4d37a5;
 }
 
 #message {
@@ -11648,13 +11672,12 @@ body #content .section-content {
 .items-list {
   list-style: none;
   padding: 0;
+  color: #4d37a5;
 }
 
 .items-list li {
   border-radius: 4px;
   position: relative;
-  font-size: 22px;
-  background-color: #fbfbfd;
   margin: 40px 0;
   box-shadow: 0 2px 3px #edebf6;
   cursor: pointer;
@@ -11673,23 +11696,21 @@ body #content .section-content {
   border-radius: 4px 0 0 4px;
 }
 
-.items-list li a .item-meta-info {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 5px;
-  color: #4d37a5;
-  font-size: 12px;
-  font-weight: 100;
-}
-
 .items-list li a .item-info {
-  margin: 20px;
   font-size: 16px;
 }
 
 #pagination {
   text-align: center;
+}
+
+#question-form {
+  background: #edebf6;
+  padding: 80px;
+}
+
+#questions-block {
+  margin-top: 50px;
 }
 
 .discussion-meta-info {
@@ -11698,13 +11719,6 @@ body #content .section-content {
   right: 0;
   color: #C1A2A2;
   font-size: 12px;
-}
-
-#add-discussion-button {
-  float: right;
-  margin-top: 10px;
-  width: 100px;
-  font-size: 25px;
 }
 
 #discussions-list {
