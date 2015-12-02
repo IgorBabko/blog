@@ -1,5 +1,7 @@
 @if($comments->count() !== 0)
-    <h5 class="page-number"> Page {{ $comments->currentPage() }} of {{ $comments->lastPage() }} </h5>
+    <div class="pagination-block">
+        @include('pagination.limit_links', ['paginator' => $comments])
+    </div>
     <ul class="items-list">
         @foreach ($comments as $comment)
         <li>
@@ -10,9 +12,7 @@
         </li>
         @endforeach
     </ul>
-    <div class="my-pagination">
-        {!! $comments->render() !!}
-    </div>
+    <h5 class="page-number"> Page {{ $comments->currentPage() }} of {{ $comments->lastPage() }} </h5>
 @else
     No comments
 @endif

@@ -11528,7 +11528,8 @@ body #content {
   font-size: 16px;
   font-weight: 200;
   letter-spacing: .5px;
-  background: white;
+  background: #fbfbfd;
+  padding-top: 0;
 }
 
 body #content .section-title {
@@ -11585,8 +11586,53 @@ body #content .section-content {
   background: #f6f5fb;
 }
 
-.items-list a {
+.items-list a,
+#comments-block li {
   padding: 20px;
+}
+
+.items-list {
+  list-style: none;
+  padding: 0;
+  color: black;
+}
+
+.items-list li {
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2);
+  background-color: white;
+  margin: 60px 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.items-list li:hover {
+  background-color: #edebf6;
+}
+
+.items-list li a {
+  margin: 0;
+  text-decoration: none;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.items-list li a .post-thumbnail {
+  height: 100%;
+  border-radius: 4px 0 0 4px;
+}
+
+.items-list li a .item-info {
+  font-size: 16px;
+}
+
+.page-number {
+  text-align: center;
+  color: #4d37a5;
+  margin-bottom: 20px;
+  font-weight: 100;
 }
 
 #me-img {
@@ -11613,10 +11659,6 @@ body #content .section-content {
 #message {
   height: 250px;
   padding: 0;
-}
-
-#contact-section {
-  background: #edebf6;
 }
 
 #categories #categories-list {
@@ -11662,55 +11704,16 @@ body #content .section-content {
   font-weight: 100;
 }
 
-.page-number {
+#post-title {
   text-align: center;
-  color: #4d37a5;
-  margin-bottom: 20px;
-  font-weight: 100;
+  margin: 0 0 40px;
 }
 
-.items-list {
-  list-style: none;
-  padding: 0;
-  color: #4d37a5;
-}
-
-.items-list li {
-  border-radius: 4px;
-  position: relative;
-  margin: 40px 0;
-  box-shadow: 0 2px 3px #edebf6;
-  cursor: pointer;
-}
-
-.items-list li a {
-  margin: 0;
-  text-decoration: none;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.items-list li a .post-thumbnail {
-  height: 100%;
-  border-radius: 4px 0 0 4px;
-}
-
-.items-list li a .item-info {
-  font-size: 16px;
-}
-
-#pagination {
-  text-align: center;
-}
-
-#question-form {
-  background: #edebf6;
-  padding: 80px;
-}
-
-#questions-block {
-  margin-top: 50px;
+#post-meta-info {
+  color: rgba(169, 68, 66, 0.5);
+  font-size: 12px;
+  text-align: right;
+  margin-top: 20px;
 }
 
 .discussion-meta-info {

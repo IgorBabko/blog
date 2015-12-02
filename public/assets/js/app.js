@@ -27247,7 +27247,7 @@ else if ( jQuery ) {
   $("#discover-button").on("click", function(e) {
     $htmlAndBody.animate({
       scrollTop: $("nav").offset().top
-    }, 600);
+    }, 1000);
   });
 
   var n = false;

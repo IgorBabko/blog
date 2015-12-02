@@ -154,7 +154,9 @@ body
         font-size: 16px
         font-weight: 200
         letter-spacing: .5px
-        background: white
+        background: $main-color-lightest
+        //#eee
+        padding-top: 0
 
         .section-title
             color: $main-color
@@ -200,5 +202,45 @@ body
 .items-list li
     background: rgb(246, 245, 251)
 
-.items-list a
+.items-list a,
+#comments-block li
     padding: 20px
+
+.items-list
+	list-style: none
+	padding: 0
+	color: black
+	//$main-color-dark
+
+	li
+		border-radius: 4px
+		position: relative
+		box-shadow: 3px 3px 5px rgba(77,55,165,0.2)
+		background-color: white
+		margin: 60px 0
+		// box-shadow: 0 0 10px rgba(77,55,165,0.3)
+		cursor: pointer
+		transition: all 0.2s ease-in-out
+
+		&:hover
+			background-color: $main-color-light
+
+
+		a
+			margin: 0
+			text-decoration: none
+			display: flex
+
+			.post-thumbnail
+				height: 100%
+				border-radius: 4px 0 0 4px
+
+			.item-info
+				// margin: 20px
+				font-size: 16px
+
+.page-number
+	text-align: center
+	color: $main-color-dark
+	margin-bottom: 20px
+	font-weight: 100
