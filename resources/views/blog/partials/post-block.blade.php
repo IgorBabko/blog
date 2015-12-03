@@ -1,6 +1,6 @@
 <article id="{{ $post->id }}">
-    <div class="post-text">
-        <h2 id="post-title"> {{ $post->title }} </h2>
+    <div class="item-text">
+        <h2 class="item-title"> {{ $post->title }} </h2>
         {!! nl2br(e($post->content)) !!}
         <div id="post-meta-info">
             <em id="comment-amount">comments: 5</em> |

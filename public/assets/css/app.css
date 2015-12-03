@@ -11360,33 +11360,33 @@ div.FixedHeader_Cloned table {
 }
 
 ::-webkit-input-placeholder {
-  color: #C1A2A2 !important;
+  color: rgba(130, 114, 192, 0.5) !important;
 }
 
 ::-moz-placeholder {
-  color: #C1A2A2 !important;
+  color: rgba(130, 114, 192, 0.5) !important;
 }
 
 :-moz-placeholder {
-  color: #C1A2A2 !important;
+  color: rgba(130, 114, 192, 0.5) !important;
 }
 
 :-ms-input-placeholder {
-  color: #C1A2A2 !important;
+  color: rgba(130, 114, 192, 0.5) !important;
 }
 
 ::-moz-selection {
-  background: rgba(55, 150, 165, 0.5) !important;
+  background: rgba(130, 114, 192, 0.5) !important;
   color: white;
 }
 
 ::selection {
-  background: rgba(55, 150, 165, 0.5) !important;
+  background: rgba(130, 114, 192, 0.5) !important;
   color: white;
 }
 
 ::-moz-selection {
-  background: rgba(55, 150, 165, 0.5) !important;
+  background: rgba(130, 114, 192, 0.5) !important;
   color: white;
 }
 
@@ -11396,7 +11396,7 @@ a:active,
 a:focus,
 a:visited {
   outline: 0;
-  color: #4d37a5;
+  color: black;
 }
 
 #contact-form {
@@ -11418,17 +11418,17 @@ select {
 
 .form-control:focus,
 select.form-control:focus {
-  box-shadow: 0 0 8px rgba(55, 150, 165, 0.5);
-  border: 1px solid rgba(55, 150, 165, 0.5);
+  box-shadow: 0 0 8px #8272c0;
+  border: 1px solid #8272c0;
 }
 
 .form-control,
 select.form-control {
-  border: 1px solid rgba(55, 150, 165, 0.5);
+  border: 1px solid #8272c0;
   height: 45px;
   color: #4d37a5;
   font-size: 25px;
-  box-shadow: 0 0 0 rgba(55, 150, 165, 0.5);
+  box-shadow: 0 0 0 #8272c0;
 }
 
 input[type="checkbox"] {
@@ -11451,7 +11451,8 @@ h2 {
 }
 
 h3 {
-  font-weight: 500;
+  font-weight: 400;
+  color: #4d37a5;
 }
 
 .button {
@@ -11475,12 +11476,6 @@ h3 {
   outline: none;
 }
 
-.pagination li span,
-.pagination li a {
-  margin: 0 10px;
-  border-radius: 50% !important;
-}
-
 .pagination > .active > a {
   background: #8272c0;
   border-color: #8272c0;
@@ -11491,9 +11486,8 @@ h3 {
 .pagination > li > span,
 .pagination > .active > span:hover {
   background: white;
-  border-color: white;
+  border-color: #8272c0;
   color: #8272c0;
-  box-shadow: 1px 1px 2px rgba(77, 55, 165, 0.2);
 }
 
 .pagination > .active > a:hover {
@@ -11505,13 +11499,14 @@ h3 {
 .pagination > li > a:hover,
 .pagination > li > a:focus {
   background: white;
-  border-color: white;
+  border-color: #8272c0;
   color: #8272c0;
 }
 
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover {
   color: #8272c0;
+  border-color: #8272c0;
 }
 
 body {
@@ -11526,10 +11521,10 @@ body #content {
   line-height: 1.7;
   color: black;
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 300;
   letter-spacing: .5px;
   background: #edebf6;
-  padding-top: 0;
+  padding-top: 60px;
 }
 
 body #content .section-title {
@@ -11631,6 +11626,20 @@ body #content .section-content {
   font-weight: 100;
 }
 
+.item-title {
+  text-align: center;
+  margin: 0 0 20px;
+  font-weight: 500;
+  color: #4D37A5;
+}
+
+.item-text {
+  background: white;
+  box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2);
+  padding: 50px;
+  margin: 50px 0;
+}
+
 #me-img {
   border-radius: 50%;
   width: 300px;
@@ -11664,20 +11673,36 @@ body #content .section-content {
   box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2);
 }
 
-#categories #categories-list div.laravel:hover {
+#categories #categories-list .laravel:hover div {
   background: rgba(251, 80, 59, 0.3);
 }
 
-#categories #categories-list div.nodejs:hover {
+#categories #categories-list .laravel:hover figcaption {
+  color: #FA4F3A;
+}
+
+#categories #categories-list .nodejs:hover div {
   background: rgba(136, 192, 67, 0.3);
 }
 
-#categories #categories-list div.meteor:hover {
+#categories #categories-list .nodejs:hover figcaption {
+  color: #88C043;
+}
+
+#categories #categories-list .meteor:hover div {
   background: rgba(60, 63, 80, 0.3);
 }
 
-#categories #categories-list div.jquery:hover {
+#categories #categories-list .meteor:hover figcaption {
+  color: #DD4E4E;
+}
+
+#categories #categories-list .jquery:hover div {
   background: rgba(8, 104, 172, 0.3);
+}
+
+#categories #categories-list .jquery:hover figcaption {
+  color: #0868AC;
 }
 
 #categories #categories-list li {
@@ -11716,21 +11741,6 @@ body #content .section-content {
   font-weight: 100;
 }
 
-#post-title {
-  text-align: center;
-  margin: 0 0 20px;
-  font-weight: 500;
-  color: #4D37A5;
-}
-
-.post-text {
-  background: white;
-  box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2);
-  padding: 50px;
-  margin: 50px 0;
-  color: #4d37a5;
-}
-
 #post-meta-info {
   color: grey;
   font-size: 12px;
@@ -11738,12 +11748,18 @@ body #content .section-content {
   margin-top: 20px;
 }
 
-.discussion-meta-info {
-  position: absolute;
-  top: 0;
-  right: 0;
-  color: #C1A2A2;
+#question-text {
+  background: white;
+  box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2);
+  padding: 50px;
+  margin: 50px 0;
+}
+
+#question-meta-info {
+  color: grey;
   font-size: 12px;
+  text-align: right;
+  margin-top: 20px;
 }
 
 #discussions-list {
@@ -11901,6 +11917,9 @@ nav {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 nav .social-links,

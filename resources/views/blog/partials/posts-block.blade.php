@@ -1,5 +1,5 @@
 @if($posts->count() !== 0)
-    <h5 class="page-number"> Page {{ $posts->currentPage() }} of {{ $posts->lastPage() }} </h5>
+    <!-- <h5 class="page-number"> Page {{ $posts->currentPage() }} of {{ $posts->lastPage() }} </h5> -->
     <ul class="items-list">
         @foreach ($posts as $post)
         <li>

@@ -5,8 +5,8 @@
 			<ul id="categories-list">
 				<li>
 					<a id="1" href="category/2/posts?page=1">
-						<figure>
-							<div class="category-img-wrapper laravel">
+						<figure class="laravel">
+							<div class="category-img-wrapper">
 								<img src="/assets/img/laravel.png" alt="laravel">
 							</div>
 							<figcaption>Laravel</figcaption>
@@ -15,8 +15,8 @@
 				</li>
 				<li>
 					<a id="2" href="category/3/posts?page=1">
-						<figure>
-							<div class="category-img-wrapper nodejs">
+						<figure class="nodejs">
+							<div class="category-img-wrapper">
 								<img src="/assets/img/nodejs.png" alt="nodejs">
 							</div>
 							<figcaption>NodeJS</figcaption>
@@ -25,8 +25,8 @@
 				</li>
 				<li>
 					<a id="3" href="category/1/posts?page=1">
-						<figure>
-							<div class="category-img-wrapper meteor">
+						<figure class="meteor">
+							<div class="category-img-wrapper">
 								<img src="/assets/img/meteor.png" alt="meteorjs">
 							</div>
 							<figcaption>MeteorJS</figcaption>
@@ -35,8 +35,8 @@
 				</li>
 				<li>
 					<a id="4" href="category/1/posts?page=1">
-						<figure>
-							<div class="category-img-wrapper jquery">
+						<figure class="jquery">
+							<div class="category-img-wrapper">
 								<img src="/assets/img/jquery.png" alt="jquery">
 							</div>
 							<figcaption>jQuery</figcaption>

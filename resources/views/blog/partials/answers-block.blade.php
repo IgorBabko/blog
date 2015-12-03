@@ -1,5 +1,5 @@
 @if($answers->count() !== 0)
-    <h5 class="page-number"> Page {{ $answers->currentPage() }} of {{ $answers->lastPage() }} </h5>
+    <!-- <h5 class="page-number"> Page {{ $answers->currentPage() }} of {{ $answers->lastPage() }} </h5> -->
     <ul class="items-list">
         @foreach ($answers as $answer)
         <li>

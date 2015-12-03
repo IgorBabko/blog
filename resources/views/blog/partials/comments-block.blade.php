@@ -1,6 +1,6 @@
-<h2>Comments:</h2>
+<!-- <h2>Comments:</h2> -->
 @if($comments->count() !== 0)
-    <h5 class="page-number"> Page {{ $comments->currentPage() }} of {{ $comments->lastPage() }} </h5>
+    <!-- <h5 class="page-number"> Page {{ $comments->currentPage() }} of {{ $comments->lastPage() }} </h5> -->
     <ul class="items-list">
         @foreach ($comments as $comment)
         <li>

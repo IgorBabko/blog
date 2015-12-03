@@ -27215,10 +27215,14 @@ else if ( jQuery ) {
     }
   });
 
-  // $("#categories-list").on("mouseover", "div", function(e) {
-  //   $(this).find("img").attr("src", $(this).find("img").attr("src").match(/(.*)\.png/)[1] + "_hover.png");
+  // $("#categories-list").on("mouseover", "figure", function(e) {
+  // $(this).find("img").attr("src", $(this).find("img").attr("src").match(/(.*)\.png/)[1] + "_hover.png");
+  //   if () {
+  //
+  //   }
+  //   $(this).find("figcaption").css("color", "#FA4F3A");
   // });
-  // $("#categories-list").on("mouseout", "div", function(e) {
+  // $("#categories-list").on("mouseout", "figure", function(e) {
   //   $(this).find("img").attr("src", $(this).find("img").attr("src").match(/(.*)\_/)[1] + ".png");
   // });
 
@@ -27255,39 +27259,44 @@ else if ( jQuery ) {
 
   $("#discover-button").on("click", function(e) {
     $htmlAndBody.animate({
-      scrollTop: $("nav").offset().top
+      scrollTop: $("#content").offset().top
     }, 600);
   });
-
-  var n = false;
-  $window.on('mousewheel scroll', function() {
-    if ($window.scrollTop() >= $window.height() && !n) {
-      $("nav").css({
-        "position": "fixed",
-        "top": "0",
-        "left": "0"
-      });
-      $("#content").css("padding-top", "60px");
-      n = true;
-    } else if ($window.scrollTop() < $window.height() && n) {
-      $("nav").css("position", "static");
-      $("#content").css("padding-top", "0");
-      n = false;
-    }
-  });
-
 
   // var n = false;
   // $window.on('mousewheel scroll', function() {
   //   if ($window.scrollTop() >= $window.height() && !n) {
-  //     $("nav").css("display", "flex").autoHidingNavbar({
-  //       showOnBottom: true,
-  //       hideOffset: 0
+  //     $("nav").css({
+  //       "position": "fixed",
+  //       "top": "0",
+  //       "left": "0"
   //     });
+  //     $("#content").css("padding-top", "60px");
   //     n = true;
   //   } else if ($window.scrollTop() < $window.height() && n) {
-  //     $("nav").css("display", "none").autoHidingNavbar('hide');
+  //     $("nav").css("position", "static");
+  //     $("#content").css("padding-top", "0");
   //     n = false;
+  //   }
+  // });
+
+
+  $("nav").autoHidingNavbar({
+    showOnBottom: true,
+    hideOffset: $window.height() + 1
+  });
+  // var n = false;
+  // $window.on('mousewheel scroll', function() {
+  // if ($window.scrollTop() >= $window.height() + 60) {
+  //   $("nav").autoHidingNavbar('show');
+
+  //   console.log("bottom");
+  //   n = true;
+  // } else if ($window.scrollTop() < $window.height() + 60) {
+  //   $("nav").autoHidingNavbar('hide');
+  //   n = false;
+  //     console.log("top");
+  //
   //   }
   // });
   // $window.on('mousewheel scroll', function() {
