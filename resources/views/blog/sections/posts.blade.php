@@ -6,7 +6,7 @@
 				<li>
 					<a id="1" href="category/2/posts?page=1">
 						<figure>
-							<div class="category-img-wrapper">
+							<div class="category-img-wrapper laravel">
 								<img src="/assets/img/laravel.png" alt="laravel">
 							</div>
 							<figcaption>Laravel</figcaption>
@@ -16,7 +16,7 @@
 				<li>
 					<a id="2" href="category/3/posts?page=1">
 						<figure>
-							<div class="category-img-wrapper">
+							<div class="category-img-wrapper nodejs">
 								<img src="/assets/img/nodejs.png" alt="nodejs">
 							</div>
 							<figcaption>NodeJS</figcaption>
@@ -26,7 +26,7 @@
 				<li>
 					<a id="3" href="category/1/posts?page=1">
 						<figure>
-							<div class="category-img-wrapper">
+							<div class="category-img-wrapper meteor">
 								<img src="/assets/img/meteor.png" alt="meteorjs">
 							</div>
 							<figcaption>MeteorJS</figcaption>
@@ -36,17 +36,7 @@
 				<li>
 					<a id="4" href="category/1/posts?page=1">
 						<figure>
-							<div class="category-img-wrapper">
-								<img src="/assets/img/jquery.png" alt="jquery">
-							</div>
-							<figcaption>jQuery</figcaption>
-						</figure>
-					</a>
-				</li>
-				<li>
-					<a id="4" href="category/1/posts?page=1">
-						<figure>
-							<div class="category-img-wrapper">
+							<div class="category-img-wrapper jquery">
 								<img src="/assets/img/jquery.png" alt="jquery">
 							</div>
 							<figcaption>jQuery</figcaption>

@@ -73,25 +73,32 @@ h2
     text-align: center
 
 h3
-    font-weight: 100
+    font-weight: 500
 
 .button
     border: none
+    width: 120px
+    color: white
+    font-size: 28px
+    font-weight: 100
     color: #EFE9E9
     background: $main-color
     // box-shadow: 0 1px 1px rgba(0,0,0,0.575)
     // display: block
+    transition: all 0.2s ease-in-out
+    background-color: $main-color
+
 
     &:hover
-        background: rgb(107, 78, 77)
-        color: #fffbc0
+        background: $main-color-dark
+        color: white
 
     &:focus
         outline: none
 
-.pagination
-    text-align: center !important
-    margin: 0 auto
+// .pagination
+//     text-align: center !important
+//     margin: 0 auto
 
 
 .pagination li span,
@@ -107,9 +114,10 @@ h3
 .pagination > li > a,
 .pagination > li > span,
 .pagination > .active > span:hover,
-    background: $main-color-light
-    border-color: $main-color-light
+    background: white
+    border-color: white
     color: $main-color
+    box-shadow: 1px 1px 2px rgba(77, 55, 165, 0.2)
 
 .pagination > .active > a:hover
     background: $main-color
@@ -119,15 +127,18 @@ h3
 
 .pagination > li > a:hover,
 .pagination > li > a:focus
-    background: $main-color
-    border-color: $main-color
-    color: white
+    // background: $main-color
+    // border-color: $main-color
+    background: white
+    border-color: white
+    color: $main-color
 
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover
-    background-color: #EAEAEA
-    border-color: #EAEAEA
-    color: gray
+    color: $main-color
+
+//     background-color: #EAEAEA
+//     border-color: #EAEAEA
 
 // .pagination > li > a:hover,
 // .pagination > li > a:focus
@@ -154,7 +165,7 @@ body
         font-size: 16px
         font-weight: 200
         letter-spacing: .5px
-        background: $main-color-lightest
+        background: #edebf6
         //#eee
         padding-top: 0
 
@@ -195,9 +206,11 @@ body
     color: $main-color-dark
     font-size: 12px
     font-weight: 100
-
-.pagination-block
-    text-align: center
+//
+// .pagination-block
+//     text-align: center
+.pagination
+    margin: 0
 
 .items-list li
     background: rgb(246, 245, 251)
@@ -222,8 +235,8 @@ body
 		cursor: pointer
 		transition: all 0.2s ease-in-out
 
-		&:hover
-			background-color: $main-color-light
+		// &:hover
+		// 	background-color: $main-color-light
 
 
 		a
@@ -242,5 +255,5 @@ body
 .page-number
 	text-align: center
 	color: $main-color-dark
-	margin-bottom: 20px
+	margin: 0
 	font-weight: 100

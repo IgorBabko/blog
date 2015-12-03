@@ -1,7 +1,5 @@
 @if($posts->count() !== 0)
-    <div class="pagination-block">
-        @include('pagination.limit_links', ['paginator' => $posts])
-    </div>
+    <h5 class="page-number"> Page {{ $posts->currentPage() }} of {{ $posts->lastPage() }} </h5>
     <ul class="items-list">
         @foreach ($posts as $post)
         <li>
@@ -23,5 +21,7 @@
         @endforeach
     </ul>
     <!-- {!! $posts->render() !!} -->
-    <h5 class="page-number"> Page {{ $posts->currentPage() }} of {{ $posts->lastPage() }} </h5>
+    <div class="pagination-block">
+        @include('pagination.limit_links', ['paginator' => $posts])
+    </div>
 @endif

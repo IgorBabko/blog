@@ -3,6 +3,9 @@
         <li class="{{ ($paginator->currentPage() == 1) ? ' disabled' : '' }}">
             <a href="{{ $paginator->url(1) }}">First</a>
          </li>
+        <!-- <li>
+             <a href="{{ $paginator->url(1) }}">...</a>
+        </li> -->
         @for ($i = 1; $i <= $paginator->lastPage(); $i++)
             <?php
             $half_total_links = floor((int)config('blog.link_limit') / 2);
@@ -21,6 +24,9 @@
                 </li>
             @endif
         @endfor
+        <!-- <li>
+             <a href="{{ $paginator->url(1) }}">...</a>
+        </li> -->
         <li class="{{ ($paginator->currentPage() == $paginator->lastPage()) ? ' disabled' : '' }}">
             <a href="{{ $paginator->url($paginator->lastPage()) }}">Last</a>
         </li>

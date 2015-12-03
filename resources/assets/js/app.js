@@ -6,6 +6,13 @@
     }
   });
 
+  // $("#categories-list").on("mouseover", "div", function(e) {
+  //   $(this).find("img").attr("src", $(this).find("img").attr("src").match(/(.*)\.png/)[1] + "_hover.png");
+  // });
+  // $("#categories-list").on("mouseout", "div", function(e) {
+  //   $(this).find("img").attr("src", $(this).find("img").attr("src").match(/(.*)\_/)[1] + ".png");
+  // });
+
   var $sections = $("section"),
     $navLinks = $(".nav-item-link"),
     $nav = $("nav"),
@@ -18,7 +25,7 @@
 
     $htmlAndBody.animate({
       scrollTop: $("#" + sectionId).offset().top - 50
-    }, 600, function() {
+    }, 300, function() {
       $navLinks.removeClass("active");
       $self.addClass("active");
     });
@@ -35,10 +42,12 @@
   // $("nav").hide();
 
 
+
+
   $("#discover-button").on("click", function(e) {
     $htmlAndBody.animate({
       scrollTop: $("nav").offset().top
-    }, 1000);
+    }, 600);
   });
 
   var n = false;

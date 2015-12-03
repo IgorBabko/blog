@@ -6,6 +6,24 @@
 		padding: 0
 		text-align: center
 
+		div
+			border-radius: 50%
+			background: white
+			box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2)
+			// transition: all 0.2s ease-in-out
+
+			&.laravel:hover
+				background: rgba(251,80,59,0.3)
+
+			&.nodejs:hover
+				background: rgba(136, 192, 67, 0.3)
+
+			&.meteor:hover
+				background: rgba(60, 63, 80, 0.3)
+
+			&.jquery:hover
+				background: rgba(8, 104, 172, 0.3)
+
 		li
 			display: inline-block
 			text-align: center
@@ -18,8 +36,8 @@
 				text-decoration: none
 
 				.category-img-wrapper
-					width: 200px
-					height: 200px
+					width: 150px
+					height: 150px
 					// border-radius: 50%
 					// border: 2px solid $main-color-dark
 					display: flex
@@ -27,7 +45,7 @@
 					align-items: center
 
 					img
-						width: 150px
+						width: 100px
 
 				figcaption
 					color: $main-color-dark
@@ -37,10 +55,19 @@
 // comments
 #post-title
 	text-align: center
-	margin: 0 0 40px
+	margin: 0 0 20px
+	font-weight: 500
+	color: #4D37A5
+
+.post-text
+	background: white
+	box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2)
+	padding: 50px
+	margin: 50px 0
+	color: #4d37a5
 
 #post-meta-info
-	color: rgba(169,68,66,0.50)
+	color: grey
 	font-size: 12px
 	text-align: right
 	margin-top: 20px

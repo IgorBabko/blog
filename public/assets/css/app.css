@@ -11451,27 +11451,28 @@ h2 {
 }
 
 h3 {
-  font-weight: 100;
+  font-weight: 500;
 }
 
 .button {
   border: none;
+  width: 120px;
+  color: white;
+  font-size: 28px;
+  font-weight: 100;
   color: #EFE9E9;
   background: #8272c0;
+  transition: all 0.2s ease-in-out;
+  background-color: #8272c0;
 }
 
 .button:hover {
-  background: #6b4e4d;
-  color: #fffbc0;
+  background: #4d37a5;
+  color: white;
 }
 
 .button:focus {
   outline: none;
-}
-
-.pagination {
-  text-align: center !important;
-  margin: 0 auto;
 }
 
 .pagination li span,
@@ -11489,9 +11490,10 @@ h3 {
 .pagination > li > a,
 .pagination > li > span,
 .pagination > .active > span:hover {
-  background: #edebf6;
-  border-color: #edebf6;
+  background: white;
+  border-color: white;
   color: #8272c0;
+  box-shadow: 1px 1px 2px rgba(77, 55, 165, 0.2);
 }
 
 .pagination > .active > a:hover {
@@ -11502,16 +11504,14 @@ h3 {
 
 .pagination > li > a:hover,
 .pagination > li > a:focus {
-  background: #8272c0;
-  border-color: #8272c0;
-  color: white;
+  background: white;
+  border-color: white;
+  color: #8272c0;
 }
 
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover {
-  background-color: #EAEAEA;
-  border-color: #EAEAEA;
-  color: gray;
+  color: #8272c0;
 }
 
 body {
@@ -11528,7 +11528,7 @@ body #content {
   font-size: 16px;
   font-weight: 200;
   letter-spacing: .5px;
-  background: #fbfbfd;
+  background: #edebf6;
   padding-top: 0;
 }
 
@@ -11578,8 +11578,8 @@ body #content .section-content {
   font-weight: 100;
 }
 
-.pagination-block {
-  text-align: center;
+.pagination {
+  margin: 0;
 }
 
 .items-list li {
@@ -11607,10 +11607,6 @@ body #content .section-content {
   transition: all 0.2s ease-in-out;
 }
 
-.items-list li:hover {
-  background-color: #edebf6;
-}
-
 .items-list li a {
   margin: 0;
   text-decoration: none;
@@ -11631,7 +11627,7 @@ body #content .section-content {
 .page-number {
   text-align: center;
   color: #4d37a5;
-  margin-bottom: 20px;
+  margin: 0;
   font-weight: 100;
 }
 
@@ -11639,21 +11635,15 @@ body #content .section-content {
   border-radius: 50%;
   width: 300px;
   margin: 0 auto 30px;
+  border: 7px solid white;
+  box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2);
   display: block;
 }
 
-#submit-email-button,
-#ask-question-button {
-  width: 120px;
-  color: white;
-  font-size: 28px;
-  font-weight: 100;
-  background-color: #8272c0;
-}
-
-#submit-email-button:hover,
-#ask-question-button:hover {
-  background-color: #4d37a5;
+.my-info {
+  background: white;
+  box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2);
+  padding: 50px;
 }
 
 #message {
@@ -11666,6 +11656,28 @@ body #content .section-content {
   margin: 0 0 50px 0;
   padding: 0;
   text-align: center;
+}
+
+#categories #categories-list div {
+  border-radius: 50%;
+  background: white;
+  box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2);
+}
+
+#categories #categories-list div.laravel:hover {
+  background: rgba(251, 80, 59, 0.3);
+}
+
+#categories #categories-list div.nodejs:hover {
+  background: rgba(136, 192, 67, 0.3);
+}
+
+#categories #categories-list div.meteor:hover {
+  background: rgba(60, 63, 80, 0.3);
+}
+
+#categories #categories-list div.jquery:hover {
+  background: rgba(8, 104, 172, 0.3);
 }
 
 #categories #categories-list li {
@@ -11682,8 +11694,8 @@ body #content .section-content {
 }
 
 #categories #categories-list li a .category-img-wrapper {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -11696,7 +11708,7 @@ body #content .section-content {
 }
 
 #categories #categories-list li a .category-img-wrapper img {
-  width: 150px;
+  width: 100px;
 }
 
 #categories #categories-list li a figcaption {
@@ -11706,11 +11718,21 @@ body #content .section-content {
 
 #post-title {
   text-align: center;
-  margin: 0 0 40px;
+  margin: 0 0 20px;
+  font-weight: 500;
+  color: #4D37A5;
+}
+
+.post-text {
+  background: white;
+  box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2);
+  padding: 50px;
+  margin: 50px 0;
+  color: #4d37a5;
 }
 
 #post-meta-info {
-  color: rgba(169, 68, 66, 0.5);
+  color: grey;
   font-size: 12px;
   text-align: right;
   margin-top: 20px;
@@ -11967,7 +11989,7 @@ nav .social-links .github:hover i:first-child {
 }
 
 footer {
-  background: #edebf6;
+  background: rgba(77, 55, 165, 0.8);
   height: 400px;
 }
 

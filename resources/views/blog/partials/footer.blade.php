@@ -6,7 +6,7 @@
 </div>
 <hr> -->
 <footer>
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md col-md-offset-1">
                 <ul class="list-inline text-center">
@@ -68,5 +68,5 @@
                 <p class="copyright"> Copyright &copy; {{ config('blog.author') }} </p>
             </div>
         </div>
-    </div>
+    </div> -->
 </footer>

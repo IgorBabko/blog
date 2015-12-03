@@ -10,7 +10,7 @@
 				<label for="message">Question:</label>
 				<textarea rows="7" class="form-control" id="question" name="question" placeholder="Your question goes here:"> {{ old('question') }} </textarea>
 			</div>
-			<button type="submit" class="btn" id="ask-question-button">Ask</button>
+			<button type="submit" class="btn button">Ask</button>
 		</form>
 		<div id="questions-block">
 			@include('blog.partials.questions-block')

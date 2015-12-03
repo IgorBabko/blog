@@ -1,7 +1,5 @@
 @if($questions->count() !== 0)
-    <div class="pagination-block">
-        @include('pagination.limit_links', ['paginator' => $questions])
-    </div>
+    <h5 class="page-number"> Page {{ $questions->currentPage() }} of {{ $questions->lastPage() }} </h5>
     <ul class="items-list">
         @foreach ($questions as $question)
         <li>
@@ -14,5 +12,7 @@
         </li>
         @endforeach
     </ul>
-    <h5 class="page-number"> Page {{ $questions->currentPage() }} of {{ $questions->lastPage() }} </h5>
+    <div class="pagination-block">
+        @include('pagination.limit_links', ['paginator' => $questions])
+    </div>
 @endif

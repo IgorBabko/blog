@@ -18,6 +18,6 @@
             <label for="message">Message:</label>
             <textarea rows="7" class="form-control" id="message" name="message"> {{ old('message') }} </textarea>
         </div>
-        <button type="submit" id="submit-email-button" class="btn">Submit</button>
+        <button type="submit" class="btn button">Submit</button>
     </form>
 </section>
