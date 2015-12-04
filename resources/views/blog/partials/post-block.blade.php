@@ -2,7 +2,7 @@
     <div class="item-text">
         <h2 class="item-title"> {{ $post->title }} </h2>
         {!! nl2br(e($post->content)) !!}
-        <div id="post-meta-info">
+        <div class="item-meta-info">
             <em id="comment-amount">comments: 5</em> |
             <em id="posted-date">posted date: {{ $post->published_at->format('M jS Y g:ia') }} </em>
         </div>
