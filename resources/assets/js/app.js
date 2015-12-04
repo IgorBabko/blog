@@ -18,46 +18,56 @@
   // });
 
   var $sections = $("section"),
-    $navLinks = $(".nav-item-link"),
+    $navLinks = $(".menu-links li"),
     $nav = $("nav"),
-    $htmlAndBody = $("html, body");
-  $window = $(window);
+    $htmlAndBody = $("html, body"),
+    $window = $(window);
 
   $navLinks.on("click", function() {
     var $self = $(this);
     var sectionId = $self.data("section-id");
+
 
     $htmlAndBody.animate({
       scrollTop: $("#" + sectionId).offset().top - 50
     }, 300, function() {
       $navLinks.removeClass("active");
       $self.addClass("active");
+    //   $nav.autoHidingNavbar('show');
     });
+    // $nav.autoHidingNavbar('show');
+
   });
 
   $window.on("unload", function() {
     window.scrollTo(0, 0);
   });
 
-  // $("nav").autoHidingNavbar({
+  // $nav.autoHidingNavbar({
   //   showOnBottom: true,
   //   hideOffset: 0
   // });
-  // $("nav").hide();
+  // $nav.hide();
 
 
 
 
   $("#discover-button").on("click", function(e) {
     $htmlAndBody.animate({
-      scrollTop: $("#content").offset().top
+      scrollTop: $("#content").offset().top - 60
     }, 600);
   });
+
+  $("#welcome").fadeIn(1000);
+
+  setTimeout(function() {
+    $nav.addClass("shown");
+  }, 1000);
 
   // var n = false;
   // $window.on('mousewheel scroll', function() {
   //   if ($window.scrollTop() >= $window.height() && !n) {
-  //     $("nav").css({
+  //     $nav.css({
   //       "position": "fixed",
   //       "top": "0",
   //       "left": "0"
@@ -65,26 +75,28 @@
   //     $("#content").css("padding-top", "60px");
   //     n = true;
   //   } else if ($window.scrollTop() < $window.height() && n) {
-  //     $("nav").css("position", "static");
+  //     $nav.css("position", "static");
   //     $("#content").css("padding-top", "0");
   //     n = false;
   //   }
   // });
 
 
-  $("nav").autoHidingNavbar({
-    showOnBottom: true,
-    hideOffset: $window.height() + 1
-  });
+  // $nav.autoHidingNavbar({
+  //   showOnBottom: true,
+  //   hideOffset: $window.height()
+  // });
+
+
   // var n = false;
   // $window.on('mousewheel scroll', function() {
   // if ($window.scrollTop() >= $window.height() + 60) {
-  //   $("nav").autoHidingNavbar('show');
+  //   $nav.autoHidingNavbar('show');
 
   //   console.log("bottom");
   //   n = true;
   // } else if ($window.scrollTop() < $window.height() + 60) {
-  //   $("nav").autoHidingNavbar('hide');
+  //   $nav.autoHidingNavbar('hide');
   //   n = false;
   //     console.log("top");
   //

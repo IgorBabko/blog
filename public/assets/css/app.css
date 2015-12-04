@@ -11524,15 +11524,15 @@ body #content {
   font-weight: 300;
   letter-spacing: .5px;
   background: #edebf6;
-  padding-top: 60px;
 }
 
 body #content .section-title {
-  color: #8272c0;
+  color: white;
+  background: rgba(130, 114, 192, 0.5);
   font-size: 72px;
   font-weight: 100;
   text-align: center;
-  margin: 0;
+  margin: 0 0 50px 0;
   padding: 50px 0;
 }
 
@@ -11883,8 +11883,9 @@ header #welcome {
   text-align: center;
   color: #EFE9E9;
   font-size: 36px;
-  font-weight: lighter;
+  font-weight: 200;
   text-shadow: 0px 2px 5px #000;
+  display: none;
 }
 
 header #welcome #discover-button {
@@ -11897,6 +11898,8 @@ header #welcome #discover-button {
   margin-top: 25px;
   font-size: 28px;
   font-weight: 100;
+  outline: none;
+  display: none;
 }
 
 header #welcome #discover-button:hover {
@@ -11920,6 +11923,14 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+
+nav.shown {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
 }
 
 nav .social-links,
