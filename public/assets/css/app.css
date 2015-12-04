@@ -11418,17 +11418,17 @@ select {
 
 .form-control:focus,
 select.form-control:focus {
-  box-shadow: 0 0 8px #8272c0;
-  border: 1px solid #8272c0;
+  box-shadow: 0 0 8px rgba(130, 114, 192, 0.5);
+  border: 1px solid rgba(130, 114, 192, 0.5);
 }
 
 .form-control,
 select.form-control {
-  border: 1px solid #8272c0;
+  border: 1px solid rgba(130, 114, 192, 0.5);
   height: 45px;
-  color: #4d37a5;
+  color: #8272C0;
   font-size: 25px;
-  box-shadow: 0 0 0 #8272c0;
+  box-shadow: 0 0 0 rgba(130, 114, 192, 0.5);
 }
 
 input[type="checkbox"] {
@@ -11441,8 +11441,9 @@ textarea.form-control {
 }
 
 .form-group label {
-  font-size: 18px;
-  font-weight: 200;
+  font-size: 24px;
+  font-weight: 100;
+  color: #8272C0;
 }
 
 h2 {
@@ -11451,8 +11452,9 @@ h2 {
 }
 
 h3 {
-  font-weight: 400;
+  font-weight: 100;
   color: #4d37a5;
+  font-size: 32px;
 }
 
 .button {
@@ -11472,13 +11474,16 @@ h3 {
   color: white;
 }
 
-.button:focus {
+.button:focus,
+.button:active,
+.button:focus:active {
   outline: none;
+  color: white;
 }
 
 .pagination > .active > a {
   background: #8272c0;
-  border-color: #8272c0;
+  border-color: #E3DFF1;
   color: white;
 }
 
@@ -11486,27 +11491,27 @@ h3 {
 .pagination > li > span,
 .pagination > .active > span:hover {
   background: white;
-  border-color: #8272c0;
+  border-color: #E3DFF1;
   color: #8272c0;
 }
 
 .pagination > .active > a:hover {
   background: #8272c0;
   color: white;
-  border-color: #8272c0;
+  border-color: #E3DFF1;
 }
 
 .pagination > li > a:hover,
 .pagination > li > a:focus {
   background: white;
-  border-color: #8272c0;
+  border-color: #E3DFF1;
   color: #8272c0;
 }
 
 .pagination > .disabled > a,
 .pagination > .disabled > a:hover {
   color: #8272c0;
-  border-color: #8272c0;
+  border-color: #E3DFF1;
 }
 
 body {
@@ -11527,8 +11532,8 @@ body #content {
 }
 
 body #content .section-title {
-  color: white;
-  background: rgba(130, 114, 192, 0.5);
+  color: #8272C0;
+  background: rgba(130, 114, 192, 0.1);
   font-size: 72px;
   font-weight: 100;
   text-align: center;
@@ -11568,22 +11573,13 @@ body #content .section-content {
   top: 0;
   right: 0;
   margin: 5px;
-  color: #4d37a5;
+  color: #8272C0;
   font-size: 12px;
   font-weight: 100;
 }
 
 .pagination {
   margin: 0;
-}
-
-.items-list li {
-  background: #f6f5fb;
-}
-
-.items-list a,
-#comments-block li {
-  padding: 20px;
 }
 
 .items-list {
@@ -11593,16 +11589,19 @@ body #content .section-content {
 }
 
 .items-list li {
+  background: #f6f5fb;
   border-radius: 4px;
   position: relative;
   box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2);
   background-color: white;
   margin: 60px 0;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
-.items-list li a {
+.items-list li a,
+.items-list li .answer,
+.items-list li .comment {
+  padding: 20px;
   margin: 0;
   text-decoration: none;
   display: -webkit-flex;
@@ -11610,12 +11609,16 @@ body #content .section-content {
   display: flex;
 }
 
-.items-list li a .post-thumbnail {
+.items-list li a .post-thumbnail,
+.items-list li .answer .post-thumbnail,
+.items-list li .comment .post-thumbnail {
   height: 100%;
   border-radius: 4px 0 0 4px;
 }
 
-.items-list li a .item-info {
+.items-list li a .item-info,
+.items-list li .answer .item-info,
+.items-list li .comment .item-info {
   font-size: 16px;
 }
 
@@ -11629,7 +11632,8 @@ body #content .section-content {
 .item-title {
   text-align: center;
   margin: 0 0 20px;
-  font-weight: 500;
+  font-weight: 100;
+  font-size: 40px;
   color: #4D37A5;
 }
 
@@ -11647,6 +11651,14 @@ body #content .section-content {
   border: 7px solid white;
   box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2);
   display: block;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+
+#me-img.visible {
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
 .my-info {
@@ -11657,7 +11669,6 @@ body #content .section-content {
 
 #message {
   height: 250px;
-  padding: 0;
 }
 
 #categories #categories-list {
@@ -11742,7 +11753,8 @@ body #content .section-content {
 }
 
 #post-meta-info {
-  color: grey;
+  color: #8272C0;
+  font-weight: 100;
   font-size: 12px;
   text-align: right;
   margin-top: 20px;
@@ -11864,6 +11876,7 @@ body #content .section-content {
 
 header {
   height: 100vh;
+  min-height: 600px;
   position: relative;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11877,15 +11890,28 @@ header {
 }
 
 header #welcome {
+  position: relative;
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(77, 55, 165, 0.8);
   width: 70%;
   line-height: 1.4;
   letter-spacing: 2px;
   text-align: center;
   color: #EFE9E9;
   font-size: 36px;
-  font-weight: 200;
+  font-weight: 100;
   text-shadow: 0px 2px 5px #000;
   display: none;
+}
+
+header #welcome #close-icon {
+  cursor: pointer;
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px 5px 0 0;
 }
 
 header #welcome #discover-button {
@@ -11904,6 +11930,14 @@ header #welcome #discover-button {
 
 header #welcome #discover-button:hover {
   box-shadow: 0 0 35px #4d37a5;
+}
+
+header #smile {
+  font-size: 72px;
+  font-weight: 400;
+  display: inline-block;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 nav {

@@ -6,12 +6,14 @@
             <div class="item-meta-info">
                 <em class="posted-date">posted date: {{ $answer->published_at->format('M jS Y g:ia') }}</em>
             </div>
-            {{ $answer->content }}
+            <div class="answer">
+                {{ $answer->content }}
+            </div>
         </li>
         @endforeach
     </ul>
-    <div class="my-pagination">
-        {!! $answers->render() !!}
+    <div class="pagination-block">
+        @include('pagination.limit_links', ['paginator' => $answers])
     </div>
 @else
     No answers

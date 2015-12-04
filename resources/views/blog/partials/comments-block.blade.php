@@ -1,4 +1,3 @@
-<!-- <h2>Comments:</h2> -->
 @if($comments->count() !== 0)
     <!-- <h5 class="page-number"> Page {{ $comments->currentPage() }} of {{ $comments->lastPage() }} </h5> -->
     <ul class="items-list">
@@ -7,7 +6,9 @@
             <div class="item-meta-info">
                 <em class="posted-date">posted date: {{ $comment->published_at->format('M jS Y g:ia') }}</em>
             </div>
-            {{ $comment->content }}
+            <div class="comment">
+                {{ $comment->content }}
+            </div>
         </li>
         @endforeach
     </ul>

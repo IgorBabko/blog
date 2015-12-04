@@ -8,7 +8,13 @@
         </div>
     </div>
 </div>
-<textarea id="answer-textarea"></textarea>
+<form id="answer-form">
+    <div class="form-group">
+        <label for="comment">Your answer:</label>
+        <textarea rows="7" class="form-control" id="answer" name="answer">{{ old('answer') }}</textarea>
+    </div>
+    <button type="submit" class="btn button">Answer</button>
+</form>
 <div id="answers-block">
     @include('blog.partials.answers-block')
 </div>

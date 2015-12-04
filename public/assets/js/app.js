@@ -27269,7 +27269,21 @@ else if ( jQuery ) {
 
   setTimeout(function() {
     $nav.addClass("shown");
-  }, 1000);
+  }, 600);
+
+  $("#close-icon").on("click", function() {
+    $("#welcome").fadeOut(200);
+  });
+
+  var smile = ".)";
+  setInterval(function() {
+    $("#smile").text(smile);
+    smile = ":)" === smile ? ".)" : ":)";
+    setTimeout(function() {
+      $("#smile").text(smile);
+      smile = ":)" === smile ? ".)" : ":)";
+    }, 200);
+  }, 2000);
 
   // var n = false;
   // $window.on('mousewheel scroll', function() {
@@ -27318,6 +27332,10 @@ else if ( jQuery ) {
     });
     $navLinks.removeClass("active");
     $($navLinks[aboveBlocks.length - 1]).addClass("active");
+
+    if ($window.scrollTop() > $window.height() - $window.height() / 2.5) {
+      $("#me-img").addClass("visible");
+    }
 
   // if ($window.scrollTop() >= $window.height() - 60) {
   //   $nav.css({
