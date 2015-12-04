@@ -11,7 +11,7 @@
 <form id="answer-form">
     <div class="form-group">
         <label for="comment">Your answer:</label>
-        <textarea rows="7" class="form-control" id="answer" name="answer">{{ old('answer') }}</textarea>
+        <textarea rows="7" class="form-control" id="answer" name="answer"></textarea>
     </div>
     <button type="submit" class="btn button">Answer</button>
 </form>

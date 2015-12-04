@@ -4,11 +4,11 @@
 		<form id="question-form">
 			<div class="form-group">
 				<label for="question-title">Question title:</label>
-				<input type="text" class="form-control" id="question-title" value="{{ old('questionTitle') }}">
+				<input type="text" class="form-control" id="question-title">
 			</div>
 			<div class="form-group">
 				<label for="message">Question:</label>
-				<textarea rows="7" class="form-control" id="question" name="question"> {{ old('question') }} </textarea>
+				<textarea rows="7" class="form-control" id="question" name="question"></textarea>
 			</div>
 			<button type="submit" class="btn button">Ask</button>
 		</form>

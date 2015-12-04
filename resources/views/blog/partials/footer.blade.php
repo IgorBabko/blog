@@ -6,6 +6,8 @@
 </div>
 <hr> -->
 <footer>
+    <p class="copyright"> &copy; 2015 {{ config('blog.author') }}. All rights reserved.</p>
+
     <!-- <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md col-md-offset-1">
@@ -65,7 +67,6 @@
                         </a>
                     </li>
                 </ul>
-                <p class="copyright"> Copyright &copy; {{ config('blog.author') }} </p>
             </div>
         </div>
     </div> -->

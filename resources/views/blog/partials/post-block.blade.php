@@ -11,7 +11,7 @@
         <form id="comment-form">
     		<div class="form-group">
                 <label for="comment">Your opinion:</label>
-    			<textarea rows="7" class="form-control" id="comment" name="comment">{{ old('comment') }}</textarea>
+    			<textarea rows="7" class="form-control" id="comment" name="comment"></textarea>
     		</div>
     		<button type="submit" class="btn button">Ask</button>
     	</form>
