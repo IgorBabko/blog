@@ -27231,6 +27231,7 @@ else if ( jQuery ) {
     $navLinks = $(".menu-links li"),
     $nav = $("nav"),
     $htmlAndBody = $("html, body"),
+    $catLinks = $("#categories-list li"),
     $window = $(window);
 
   $navLinks.on("click", function() {
@@ -27337,6 +27338,17 @@ else if ( jQuery ) {
       $("#me-img").addClass("visible");
     }
 
+    if ($window.scrollTop() > $("#posts-section").offset().top - $window.height() / 2.5) {
+      console.log('niko');
+      $catLinks.each(function(i, link) {
+        setTimeout(function() {
+          $(link).animate({
+            "opacity": "1"
+          }, 200);
+        }, i * 200);
+      });
+    }
+
   // if ($window.scrollTop() >= $window.height() - 60) {
   //   $nav.css({
   //     "height": "50px",
@@ -27377,12 +27389,6 @@ else if ( jQuery ) {
 
   // });
   // });
-
-  $navLinks.each(function(i, link) {
-    setTimeout(function() {
-      $(link).fadeIn(300);
-    }, i * 300);
-  });
 
   // search box handler
 
