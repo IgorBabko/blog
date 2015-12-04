@@ -11964,7 +11964,7 @@ nav .menu-links li {
 }
 
 nav .menu-links li:hover,
-nav .menu-links li.active-item {
+nav .menu-links li.active {
   border-top: 2px solid white;
 }
 

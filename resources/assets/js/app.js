@@ -17,7 +17,7 @@
   //   $(this).find("img").attr("src", $(this).find("img").attr("src").match(/(.*)\_/)[1] + ".png");
   // });
 
-  var $sections = $("section"),
+  var $sections = $("section, header"),
     $navLinks = $(".menu-links li"),
     $nav = $("nav"),
     $htmlAndBody = $("html, body"),
@@ -33,10 +33,7 @@
     }, 300, function() {
       $navLinks.removeClass("active");
       $self.addClass("active");
-    //   $nav.autoHidingNavbar('show');
     });
-    // $nav.autoHidingNavbar('show');
-
   });
 
   $window.on("unload", function() {
@@ -102,27 +99,28 @@
   //
   //   }
   // });
-  // $window.on('mousewheel scroll', function() {
-  //   var aboveBlocks = $sections.map(function(i, section) {
-  //     if (section.getBoundingClientRect().top <= 50) {
-  //       return section;
-  //     }
+
+  $window.on('mousewheel scroll', function() {
+    var aboveBlocks = $sections.map(function(i, section) {
+      if (section.getBoundingClientRect().top <= $window.height() / 3) {
+        return section;
+      }
+    });
+    $navLinks.removeClass("active");
+    $($navLinks[aboveBlocks.length - 1]).addClass("active");
+
+  // if ($window.scrollTop() >= $window.height() - 60) {
+  //   $nav.css({
+  //     "height": "50px",
+  //     "background-color": "rgba(24, 40, 72, 1)"
   //   });
-  //   $navLinks.removeClass("active");
-  //   $($navLinks[aboveBlocks.length - 1]).addClass("active");
-  //
-  //   if ($window.scrollTop() >= $window.height() - 50) {
-  //     $nav.css({
-  //       "height": "50px",
-  //       "background-color": "rgba(24, 40, 72, 1)"
-  //     });
-  //   } else {
-  //     $nav.css({
-  //       "height": ($window.height() - $window.scrollTop()) + "px",
-  //       "background-color": "rgba(24, 40, 72, " + $window.scrollTop() / $window.height() + ")"
-  //     });
-  //   }
-  // });
+  // } else {
+  //   $nav.css({
+  //     "height": ($window.height() - $window.scrollTop()) + "px",
+  //     "background-color": "rgba(24, 40, 72, " + $window.scrollTop() / $window.height() + ")"
+  //   });
+  // }
+  });
 
   $("#contact-form").on("submit", function(e) {
     e.preventDefault();

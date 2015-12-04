@@ -1,10 +1,13 @@
 <nav>
 	<ul class="menu-links">
-		<li data-section-id="home-section" class="active-item">
+		<li data-section-id="home-section" class="active">
 			Home
 		</li>
 		<li data-section-id="about-section">
 			About
+		</li>
+		<li data-section-id="contact-section">
+			Contact
 		</li>
 		<li data-section-id="posts-section">
 			Posts
