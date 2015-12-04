@@ -1,55 +1,54 @@
 nav
-	height: 60px
-	width: 100%
-	background: $main-color-dark
-	z-index: 1000
-	display: flex
-	justify-content: space-around
-	align-items: center
-	position: fixed
-	top: 0
-	left: 0
 	transition: all 0.5s ease-in-out
 	transform: translateY(-100%)
+	margin: 0 !important
+	border: none !important
+	background: #8539AD !important
+
+	.navbar-collapse
+		border: none
 
 	&.shown
 		transform: translateY(0)
 
-	.social-links
-		display: none
+	.container-fluid
+		padding: 0
 
-	.social-links,
+		li
+			height: 60px !important
+			a
+				display: inline-block !important
+				line-height: 1.4 !important
+
+	.social-links
+		li
+			margin: 0 20px 0 0
+			display: flex
+			justify-content: center
+			align-items: center
+			a
+				padding: 0
+				margin: 0 5px
+
 	.menu-links
 		margin: 0
-		padding: 0
-		li
-			display: inline-block
-
-			&:hover
-				cursor: pointer
-
-	.menu-links
-		height: 100%
 		li
 			color: white
 			font-weight: 100
 			font-size: 32px
-			height: 100%
-			border-top: 2px solid $main-color-dark
-			//#3A7896
-			//#337AB7
 			margin: 0 20px
-			padding-top: 5px
 
-			&:hover,
-			&.active
-				border-top: 2px solid white
+			a
+				height: 100%
+				padding: 5px 0 0 0
+				border-top: 2px solid #8539AD
+				color: white !important
+
+				&:hover,
+				&.current
+					border-top: 2px solid white
 
 	.social-links
-		margin-right: 17px
-		li
-			padding: 0
-			margin-left: 15px
 
 		.fa-stack
 			width: 1.7em
@@ -87,3 +86,51 @@ nav
 		.github:hover
 			i:first-child
 				color: #323131
+
+
+@media (max-width : 768px)
+	.navbar-toggle
+		margin-right: 25px
+		border-color: white !important
+
+		&:hover,
+		&:focus
+			background-color: white !important
+			span
+				background-color: #8539AD !important
+
+		span
+			background-color: white !important
+
+	.menu-links
+		li
+			margin: 0 !important
+			a
+				padding: 7px 0 0 0 !important
+				width: 100%
+				border: none !important
+				text-align: center
+
+				&:hover,
+				&.current
+					background: black !important
+					border: none !important
+					color: white
+	.social-links
+		li
+			padding: 0
+			margin: 0 !important
+
+@media (min-width : 768px) and (max-width : 977px)
+	.navbar-nav
+		float: none
+		text-align: center
+		li
+			float: none
+			display: inline-block
+
+	.navbar-collapse
+		text-align: center !important
+
+		.social-links
+			display: none

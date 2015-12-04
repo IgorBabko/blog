@@ -7,13 +7,14 @@
   });
 
   var $sections = $("section, header"),
-    $navLinks = $(".menu-links li"),
+    $navLinks = $(".menu-links li a"),
     $nav = $("nav"),
     $htmlAndBody = $("html, body"),
     $catLinks = $("#categories-list li"),
     $window = $(window);
 
-  $navLinks.on("click", function() {
+  $navLinks.on("click", function(e) {
+    e.preventDefault();
     var $self = $(this);
     var sectionId = $self.data("section-id");
 
@@ -21,8 +22,8 @@
     $htmlAndBody.animate({
       scrollTop: $("#" + sectionId).offset().top - 50
     }, 300, function() {
-      $navLinks.removeClass("active");
-      $self.addClass("active");
+      $navLinks.removeClass("current");
+      $self.addClass("current");
     });
   });
 
@@ -62,15 +63,14 @@
         return section;
       }
     });
-    $navLinks.removeClass("active");
-    $($navLinks[aboveBlocks.length - 1]).addClass("active");
+    $navLinks.removeClass("current");
+    $($navLinks[aboveBlocks.length - 1]).addClass("current");
 
     if ($window.scrollTop() > $window.height() - $window.height() / 2.5) {
       $("#me-img").addClass("visible");
     }
 
     if ($window.scrollTop() > $("#posts-section").offset().top - $window.height() / 2.5) {
-      console.log('niko');
       $catLinks.each(function(i, link) {
         setTimeout(function() {
           $(link).animate({
