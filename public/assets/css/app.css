@@ -11443,7 +11443,7 @@ form {
 .form-group label {
   font-size: 24px;
   font-weight: 100;
-  color: #8272C0;
+  color: black;
 }
 
 h2 {
@@ -11532,17 +11532,17 @@ body #content {
 }
 
 body #content .section-title {
-  color: #8272C0;
-  background: rgba(130, 114, 192, 0.1);
+  color: #4D37A5;
+  background: rgba(130, 114, 192, 0.05);
   font-size: 72px;
   font-weight: 100;
   text-align: center;
-  margin: 0 0 50px 0;
+  margin: 0;
   padding: 50px 0;
 }
 
 body #content .section-content {
-  padding: 0 80px 50px 80px;
+  padding: 50px 20px;
 }
 
 #post-block {
@@ -11594,6 +11594,10 @@ body #content .section-content {
   position: relative;
   background-color: white;
   margin: 60px 0;
+}
+
+.items-list li:last-child {
+  margin-bottom: 40px !important;
 }
 
 .items-list li a:hover {
@@ -11649,10 +11653,31 @@ body #content .section-content {
   position: relative;
 }
 
+.search div {
+  position: relative;
+}
+
+.search div i {
+  border-radius: 0 4px 4px 0;
+  padding: 8.5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #8272c0;
+  color: white;
+  cursor: pointer;
+  font-size: 28px;
+  transition: all 0.3s ease-in-out;
+}
+
+.search div i:hover {
+  background: #4D37A5;
+}
+
 #me-img {
   border-radius: 50%;
   width: 300px;
-  margin: 0 auto 30px;
+  margin: 50px auto;
   border: 7px solid white;
   box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2);
   display: block;
@@ -11666,11 +11691,29 @@ body #content .section-content {
   transform: scale(1) rotate(360deg);
 }
 
-.my-info {
+.tab-content {
   background: white;
-  box-shadow: 0 0 10px rgba(77, 55, 165, 0.1);
-  border-radius: 4px;
-  padding: 50px;
+  padding: 50px 40px !important;
+  border-top: 2px solid #EDEBF6;
+}
+
+.nav-tabs li:hover:not(.active) a {
+  background: #e8e5f3 !important;
+}
+
+.nav-tabs li a {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: #EDEBF6;
+  color: #4D37A5 !important;
+  font-size: 28px;
+  font-weight: 100;
+}
+
+#about-section .section-content {
+  padding: 0 !important;
+  box-shadow: none !important;
 }
 
 #message {
@@ -11896,7 +11939,7 @@ header:before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(77, 55, 165, 0.3);
+  background: rgba(77, 55, 165, 0.05);
   z-index: -1;
 }
 
@@ -11956,10 +11999,12 @@ nav {
   margin: 0 !important;
   border: none !important;
   background: #4d37a5 !important;
+  box-shadow: 0 1px 3px #4D37A5;
 }
 
 nav .navbar-collapse {
   border: none;
+  max-height: 400px !important;
 }
 
 nav.shown {
@@ -12012,7 +12057,7 @@ nav .menu-links li {
 nav .menu-links li a {
   height: 100%;
   padding: 5px 0 0 0;
-  border-top: 2px solid #8539AD;
+  border-top: 2px solid #4d37a5;
   color: white !important;
 }
 
@@ -12095,7 +12140,7 @@ nav .social-links .github:hover i:first-child {
 
   .menu-links li a:hover,
   .menu-links li a.current {
-    background: black !important;
+    background: #3d2c82 !important;
     border: none !important;
     color: white;
   }

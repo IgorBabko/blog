@@ -8,6 +8,8 @@
     }
   });
 
+  $(".nav-tabs a[href='#about-me']").tab("show");
+
   var $sections = $("section, header"),
     $navLinks = $(".menu-links li a"),
     $nav = $("nav"),
@@ -412,54 +414,50 @@
         }, 300);
 
         // add comment handler
-        $("#comment-form")
-          .on("submit", function(e) {
-            e.preventDefault();
+        $("#comment-form").off("submit", addCommentHandler).on("submit", addCommentHandler);
+      }).fail(function() {
+      alert(resource + ' could not be loaded.');
+    });
+  }
 
-            $.ajax({
-              'url': $(this)
-                .attr("action"),
-              'type': 'POST',
-              'data': $(this)
-                .serialize(),
-              'dataType': 'json'
-            })
-              .done(function(commentInfo) {
-                var commentObj = $.parseJSON(
-                  commentInfo);
-                console.log(commentObj);
-                var commentItem = '<li><div class="item-meta-info">posted date:' +
-                  commentObj.published_at +
-                  '</div>' +
-                  '<div class="comment">' +
-                  commentObj.content +
-                  '</div></li>';
-                $("#comments-block .items-list")
-                  .prepend(commentItem);
+  function addCommentHandler(e) {
+    e.preventDefault();
 
-              })
-              .fail(
-                function(validErrors) {
-                  for (var fieldName in
-                    validErrors.responseJSON) {
-                    var errorMsg = "";
-                    for (var i in validErrors.responseJSON[fieldName]) {
-                      errorMsg += validErrors
-                          .responseJSON[fieldName][i] +
-                        "<br>";
-                    }
-                    $('#' + fieldName)
-                      .next("span")
-                      .html(errorMsg)
-                      .parent(".form-group")
-                      .addClass("has-error");
-                  }
-                });
-          });
-      })
-      .fail(function() {
-        alert(resource + ' could not be loaded.');
-      });
+    $.ajax({
+      'url': $(this)
+        .attr("action"),
+      'type': 'POST',
+      'data': $(this)
+        .serialize(),
+      'dataType': 'json'
+    }).done(function(commentInfo) {
+      var commentObj = $.parseJSON(
+        commentInfo);
+      console.log(commentObj);
+      var commentItem = '<li><div class="item-meta-info">posted date:' +
+        commentObj.published_at +
+        '</div>' +
+        '<div class="comment">' +
+        commentObj.content +
+        '</div></li>';
+      $("#comments-block .items-list")
+        .prepend(commentItem);
+
+    }).fail(
+      function(validErrors) {
+        for (var fieldName in validErrors.responseJSON) {
+          var errorMsg = "";
+          for (var i in validErrors.responseJSON[fieldName]) {
+            errorMsg += validErrors.responseJSON[fieldName][i] + "<br>";
+          }
+          $('#' + fieldName)
+            .next("span")
+            .html(errorMsg)
+            .parent(".form-group")
+            .addClass("has-error");
+        }
+      }
+    );
   }
 
   function showCreatePostForm() {

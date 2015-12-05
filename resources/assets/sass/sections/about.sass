@@ -1,7 +1,7 @@
 #me-img
     border-radius: 50%
     width: 300px
-    margin: 0 auto 30px
+    margin: 50px auto
     border: 7px solid white
     box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2)
     display: block
@@ -11,9 +11,28 @@
     &.visible
         transform: scale(1) rotate(360deg)
 
-.my-info
+.tab-content
     background: white
-    box-shadow: 0 0 10px rgba(77, 55, 165, 0.1)
-    // box-shadow: 3px 3px 5px rgba(77, 55, 165, 0.2)
-    border-radius: 4px
-    padding: 50px
+    padding: 50px 40px !important
+    border-top: 2px solid #EDEBF6
+
+.nav-tabs
+    li
+        &:hover:not(.active)
+            a
+                background: rgb(232, 229, 243) !important
+
+        a
+            margin: 0 !important
+            border: none !important
+            border-radius: 0 !important
+            background: #EDEBF6
+            color: #4D37A5 !important
+            font:
+                size: 28px
+                weight: 100
+
+#about-section
+    .section-content
+        padding: 0 !important
+        box-shadow: none !important

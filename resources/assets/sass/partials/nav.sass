@@ -4,9 +4,11 @@ nav
 	margin: 0 !important
 	border: none !important
 	background: rgba(77,55,165,1) !important
+	box-shadow: 0 1px 3px #4D37A5
 
 	.navbar-collapse
 		border: none
+		max-height: 400px !important
 
 	&.shown
 		transform: translateY(0)
@@ -41,7 +43,7 @@ nav
 			a
 				height: 100%
 				padding: 5px 0 0 0
-				border-top: 2px solid #8539AD
+				border-top: 2px solid rgba(77,55,165,1)
 				color: white !important
 
 				&:hover,
@@ -113,7 +115,7 @@ nav
 
 				&:hover,
 				&.current
-					background: black !important
+					background: rgb(61, 44, 130) !important
 					border: none !important
 					color: white
 	.social-links
