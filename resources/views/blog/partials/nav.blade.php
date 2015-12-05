@@ -95,7 +95,7 @@
   			<a href="#" data-section-id="home-section" class="current">Home</a>
   		</li>
   		<li>
-  			<a href="#" data-section-id="about-section">About</a>
+  			<a href="#" data-section-id="bio-section">Bio</a>
   		</li>
   		<li>
   			<a href="#" data-section-id="contact-section">Contact</a>
