@@ -11896,7 +11896,7 @@ header:before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(133, 57, 173, 0.2);
+  background: rgba(77, 55, 165, 0.3);
   z-index: -1;
 }
 
@@ -11955,7 +11955,7 @@ nav {
   transform: translateY(-100%);
   margin: 0 !important;
   border: none !important;
-  background: #8539AD !important;
+  background: #4d37a5 !important;
 }
 
 nav .navbar-collapse {

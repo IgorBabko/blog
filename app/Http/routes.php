@@ -49,6 +49,9 @@ Route::group(['middleware' => 'ajax'], function () {
     get('/posts', ['as' => 'showPosts', 'uses' => 'BlogController@showPosts']);
     get('/post/{id}', ['as' => 'showPost', 'uses' => 'BlogController@showPost']);
 
+    post('/comment/add', ['as' => 'addComment', 'uses' => 'BlogController@addComment']);
+
+
     post('/contact', ['as' => 'sendEmail', 'uses' => 'ContactController@sendContactInfo']);
 
     get('/comments/{postId}', ['as' => 'showComments', 'uses' => 'BlogController@showComments']);

@@ -15,6 +15,4 @@
     <div class="pagination-block">
         @include('pagination.limit_links', ['paginator' => $comments])
     </div>
-@else
-    No comments
 @endif

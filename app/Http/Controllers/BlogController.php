@@ -6,8 +6,14 @@ use Blog\Category;
 use Blog\Http\Controllers\Controller;
 use Blog\Post;
 use Blog\Question;
+use Blog\Comment;
 use Blog\Services\RssFeed;
 use Blog\Services\SiteMap;
+use Blog\Http\Requests\CommentCreateRequest;
+use Blog\Http\Requests\AddQuestionRequest;
+use Blog\Http\Requests\AddAnswerRequest;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class BlogController extends Controller
 {
@@ -43,14 +49,18 @@ class BlogController extends Controller
      * Display the specified post.
      *
      * @param  int  $id
+     * @param  Request $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function showPost($id)
+    public function showPost($id, Request $request)
     {
         $post = Post::findOrFail($id);
 
-        $comments = $post->comments()
+        $comments = $post->comments()->orderBy('published_at', 'desc')
             ->paginate(config('blog.posts_per_page'));
+
+        $request->session()->put('current_post_id', $id);
 
         return view('blog.partials.post-block', compact('post', 'comments'));
     }
@@ -69,6 +79,23 @@ class BlogController extends Controller
             ->paginate(config('blog.posts_per_page'));
 
         return view('blog.partials.comments-block', compact('comments'));
+    }
+
+    /**
+     * Add comment
+     *
+     * @param  AddCommentRequest
+     * @return \Illuminate\Http\Response
+     */
+    public function addComment(CommentCreateRequest $request)
+    {
+        $comment = Comment::create([
+            'post_id' => $request->session()->get('current_post_id'),
+            'content' => $request->get('comment'),
+            'published_at' => Carbon::now()
+        ]);
+
+        return response()->json($comment->toJson());
     }
 
     /**

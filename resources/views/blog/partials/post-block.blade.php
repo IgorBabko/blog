@@ -8,10 +8,11 @@
         </div>
     </div>
     <div id="comments-block">
-        <form id="comment-form">
+        <form action="/comment/add" id="comment-form">
     		<div class="form-group">
-                <label for="comment">Your opinion:</label>
+                <label for="comment" class="control-label">Your opinion:</label>
     			<textarea rows="7" class="form-control" id="comment" name="comment"></textarea>
+                <span></span>
     		</div>
     		<button type="submit" class="btn button">Ask</button>
     	</form>
