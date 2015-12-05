@@ -11648,13 +11648,17 @@ body #content .section-content {
 .item-text {
   background: white;
   box-shadow: 0 0 10px rgba(77, 55, 165, 0.1);
-  padding: 50px;
+  padding: 50px 20px;
   margin: 50px 0;
   position: relative;
 }
 
 .search div {
   position: relative;
+}
+
+.search div .form-control {
+  padding-right: 54px;
 }
 
 .search div i {
@@ -11815,6 +11819,10 @@ body #content .section-content {
   font-size: 12px;
   text-align: right;
   margin-top: 20px;
+}
+
+#question-form {
+  margin-bottom: 50px;
 }
 
 #discussions-list {

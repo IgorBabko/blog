@@ -12,6 +12,13 @@
 			</div>
 			<button type="submit" class="btn button">Ask</button>
 		</form>
+        <form action="/search/question" id="question-search" class="search">
+    		<div class="form-group">
+    			<input class="form-control" name="question-search" placeholder="Search for question:">
+                <i class="fa fa-search"></i>
+                <!-- <span></span> -->
+    		</div>
+    	</form>
 		<div id="questions-block">
 			@include('blog.partials.questions-block')
 		</div>

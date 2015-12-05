@@ -47,17 +47,11 @@
 		</div>
         <form action="/search/post" id="post-search" class="search">
     		<div class="form-group">
-                <!-- <label for="comment" class="control-label">Your opinio:</label> -->
     			<input class="form-control" name="post-search" placeholder="Search for post:">
                 <i class="fa fa-search"></i>
                 <!-- <span></span> -->
     		</div>
-    		<!-- <button type="submit" class="btn button">Ask</button> -->
     	</form>
-		<!-- <div class="flex-block">
-			<input type="text" id="search-posts-input" class="form-control search-input" placeholder="Search for post:" >
-			<button id="search-posts-button" class="button inline-button"><i class="fa fa-search"></i></button>
-		</div> -->
 		<div id="posts-block">
 			@include("blog.partials.posts-block")
 		</div>
