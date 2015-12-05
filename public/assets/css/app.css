@@ -11396,7 +11396,7 @@ a:active,
 a:focus,
 a:visited {
   outline: 0;
-  color: black;
+  color: rgba(76, 76, 76, 0.9);
 }
 
 select {
@@ -11524,10 +11524,10 @@ body {
 
 body #content {
   line-height: 1.7;
-  color: black;
-  font-size: 16px;
+  color: rgba(76, 76, 76, 0.9);
+  font-size: 20px;
   font-weight: 300;
-  letter-spacing: .5px;
+  letter-spacing: 0.9px;
   background: #edebf6;
 }
 
@@ -11624,12 +11624,6 @@ body #content .section-content {
   border-radius: 4px 0 0 4px;
 }
 
-.items-list li a .item-info,
-.items-list li .answer .item-info,
-.items-list li .comment .item-info {
-  font-size: 16px;
-}
-
 .page-number {
   text-align: center;
   color: #4d37a5;
@@ -11678,6 +11672,12 @@ body #content .section-content {
   background: #4D37A5;
 }
 
+@media (max-width: 768px) {
+  body #content {
+    font-size: 16px;
+  }
+}
+
 #me-img {
   border-radius: 50%;
   width: 300px;
@@ -11711,7 +11711,7 @@ body #content .section-content {
   border-radius: 0 !important;
   background: #EDEBF6;
   color: #4D37A5 !important;
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 100;
 }
 
